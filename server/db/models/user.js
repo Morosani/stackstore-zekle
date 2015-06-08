@@ -3,6 +3,47 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
+    name: {
+        first: String,
+        last: String
+    },
+
+
+    phoneNumber: {
+        type: String
+    },
+
+    admin: {
+        type: Boolean
+    },
+
+    buyerOf: {
+        categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
+    },
+
+    sellerOf: {
+        categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
+    },
+
+    rating: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'RatingHistory'
+    },
+
+    cart: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}],
+    
+    searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
+
+    photo: {
+        data: Buffer,
+        contentType: String
+    },
+
+    location: {
+        lat: Number,
+        lng: Number
+    },
+
     email: {
         type: String
     },
