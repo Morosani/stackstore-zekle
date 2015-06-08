@@ -18,21 +18,21 @@ var schema = new mongoose.Schema({
     },
 
     buyerOf: {
-        categories: [{type: Schema.Types.ObjectId, ref: 'Category'}]
+        categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
     },
 
     sellerOf: {
-        categories: [{type: Schema.Types.ObjectId, ref: 'Category'}]
+        categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
     },
 
     rating: {
-        type: Schema.Types.ObjectId, 
+        type: mongoose.Schema.Types.ObjectId, 
         ref: 'RatingHistory'
     },
 
-    cart: [{type: Schema.Types.ObjectId, ref: 'Listing'}],
+    cart: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}],
     
-    searchHistory: [{type: Schema.Types.ObjectId, ref: 'SearchEvent'}],
+    searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
 
     photo: {
         data: Buffer,
