@@ -1,5 +1,4 @@
 'use strict';
-var crypto = require('crypto');
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
@@ -15,7 +14,17 @@ var schema = new mongoose.Schema({
     stockphoto: {
         data: Buffer,
         contentType: String
+    },
+    numOfStars: {
+        type: Number,
+        min: 1,
+        max: 5
+    },
+    itemReview: {
+        type: String
     }
+
+
 });
 
 mongoose.model('Item', schema);

@@ -25,18 +25,17 @@ var schema = new mongoose.Schema({
         categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
     },
 
-    rating: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'RatingHistory'
-    },
+    reviewHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'ReviewHistory'},
 
-    cart: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}],
+    //
+    //cart: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}],
     
-    searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
-
+   // searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
+   //
     photo: {
         data: Buffer,
-        contentType: String
+        contentType: String,
+        url: String
     },
 
     location: {
