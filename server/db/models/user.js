@@ -8,7 +8,6 @@ var schema = new mongoose.Schema({
         last: String
     },
 
-
     phoneNumber: {
         type: String
     },
@@ -27,9 +26,10 @@ var schema = new mongoose.Schema({
 
     reviewHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'ReviewHistory'},
 
-    //
-    //cart: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}],
-    
+    cart: {type: mongoose.Schema.Types.ObjectId, ref: 'Cart'},
+
+    orders: {type: mongoose.Schema.Types.ObjectId, ref:'Order'}
+
    // searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
    //
     photo: {

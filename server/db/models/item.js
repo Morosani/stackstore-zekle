@@ -9,7 +9,7 @@ var schema = new mongoose.Schema({
         type: String
     },
     category: {
-        type: String
+        type: mongoose.Schema.Types.ObjectId, ref: 'Category'
     },
     stockphoto: {
         data: Buffer,
@@ -19,9 +19,6 @@ var schema = new mongoose.Schema({
         type: Number,
         min: 1,
         max: 5
-    },
-    itemReview: {
-        type: String
     }
 
 
