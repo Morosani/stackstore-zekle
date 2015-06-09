@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var schema = new mongoose.Schema({
     id: {type: String},
     cart: [],
-    status: {type: String},
+    status: {type: String}, // $enum
     totalPrice: {type: Number}
 });
 
