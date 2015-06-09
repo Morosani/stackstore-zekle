@@ -11,4 +11,4 @@ var schema = new mongoose.Schema({
 
 
 //schema.method.Avgscores
-mongoose.model('reviewHistory', schema);
+mongoose.model('ReviewHistory', schema);
