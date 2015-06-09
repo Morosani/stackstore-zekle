@@ -13,8 +13,8 @@ var schema = new mongoose.Schema({
         type: String
     },
 
-    admin: {
-        type: Boolean
+    permissions: {
+        type: String
     },
 
     buyerOf: {
