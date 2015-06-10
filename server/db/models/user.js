@@ -28,7 +28,7 @@ var schema = new mongoose.Schema({
 
     cart: {type: mongoose.Schema.Types.ObjectId, ref: 'Cart'},
 
-    orders: {type: mongoose.Schema.Types.ObjectId, ref:'Order'}
+    orders: {type: mongoose.Schema.Types.ObjectId, ref:'Order'},
 
    // searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
    //
