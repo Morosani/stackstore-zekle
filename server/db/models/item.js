@@ -3,14 +3,16 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
     title: {
-        type: String
+        type: String,
+        required: true
     },
     description: {
-        type: String
+        type: String,
+        required: true
     },
     categories: [{
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Category'
+        type: mongoose.Schema.Types.ObjectId, ref: 'Categories',
+        required: true
     }],
     photoUrl: {type: String},
     numStars: {
