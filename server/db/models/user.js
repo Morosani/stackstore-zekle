@@ -16,8 +16,7 @@ var schema = new mongoose.Schema({
 
     permissions: {
         type: String,
-<<<<<<< HEAD
-        enum: ['authenticated', 'unauthenticated', 'admin'],
+        enum: ['admin'],
         required: true
     },
 
@@ -28,14 +27,6 @@ var schema = new mongoose.Schema({
     // sellerOf: {
     //     categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
     // },
-=======
-        enum:['admin','seller','buyer']
-    },
-
-    // buyerOf:  [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}],
-
-    // sellerOf: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}],
->>>>>>> master
 
     reviewHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'ReviewHistory'},
 
@@ -45,14 +36,8 @@ var schema = new mongoose.Schema({
 
    // searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
    //
-<<<<<<< HEAD
-    photo: {
-        url: String,
-        required: true,
-    },
-=======
+
     photoUrl:{type: String},
->>>>>>> master
 
     location: {
         lat: Number,
