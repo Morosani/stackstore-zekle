@@ -8,11 +8,11 @@ var reviews = mongoose.model('Review');
 router.get('/user/:userId', function(req, res, next) {
   reviews.find({ userId: req.params.userId }).exec().then(function(userReviews){
     return userReviews;
-  });
+  }).then(null, next);
 });
 
 router.get('/item/:itemId', function(req, res, next) {
   reviews.find({ item: req.params.itemId }).exec().then(function(arrReviews) {
     return arrReviews;
-  });
+  }).then(null, next);
 })
