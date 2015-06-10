@@ -17,6 +17,10 @@ var schema = new mongoose.Schema({
         type: Number,
         required:true
     },
+    description:{
+        type:String,
+        required:true
+    },
     photoUrl:{type:String},
     user: {
         type: mongoose.Schema.Types.ObjectId, ref: 'User'
