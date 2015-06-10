@@ -13,30 +13,23 @@ var schema = new mongoose.Schema({
     },
 
     permissions: {
-        type: String
+        type: String,
+        enum:['admin','seller','buyer']
     },
 
-    buyerOf: {
-        categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
-    },
+    // buyerOf:  [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}],
 
-    sellerOf: {
-        categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
-    },
+    // sellerOf: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}],
 
     reviewHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'ReviewHistory'},
 
     cart: {type: mongoose.Schema.Types.ObjectId, ref: 'Cart'},
 
-    orders: {type: mongoose.Schema.Types.ObjectId, ref:'Order'},
+    orders: [{type: mongoose.Schema.Types.ObjectId, ref:'Order'}],
 
    // searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
    //
-    photo: {
-        data: Buffer,
-        contentType: String,
-        url: String
-    },
+    photoUrl:{type: String},
 
     location: {
         lat: Number,

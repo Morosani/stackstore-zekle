@@ -2,10 +2,17 @@
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-    id: {type: String},
-    cart: [],
-    status: {type: String}, // $enum
-    totalPrice: {type: Number}
+	cart: {
+		type:mongoose.Schema.Types.ObjectId,
+		ref: 'Category'
+	},
+	status: {
+		type: String,
+		enum: ['created', 'processing', 'cancelled', 'completed']
+	}, // $enum
+	totalPrice: {
+		type: Number
+	}
 });
 
 mongoose.model('Order', schema);
