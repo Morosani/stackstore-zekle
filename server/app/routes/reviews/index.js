@@ -2,6 +2,7 @@
 var router = require('express').Router();
 module.exports = router;
 var _ = require('lodash');
+var mongoose = require('mongoose');
 var reviews = mongoose.model('Review');
 
 router.get('/user/:userId', function(req, res, next) {

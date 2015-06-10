@@ -2,6 +2,7 @@
 var router = require('express').Router();
 module.exports = router;
 var _ = require('lodash');
+var mongoose = require('mongoose');
 var order = mongoose.model('Order');
 
 router.get('/', function(req, res, next) {
