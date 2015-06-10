@@ -1,6 +1,5 @@
 'use strict';
 var mongoose = require('mongoose');
-
 var schema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId, 
@@ -13,17 +12,15 @@ var schema = new mongoose.Schema({
         max: 5,
         required: true
     },
-    comments: {
+    comment: {
         type: String,
         required: true
     },
     item: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Item',
-        required: true
+        required:true
     }
 });
-
-
 //schema.method.Avgscores
 mongoose.model('Review', schema);

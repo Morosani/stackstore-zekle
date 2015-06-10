@@ -10,15 +10,12 @@ var schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    category: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Category',
+    categories: [{
+        type: mongoose.Schema.Types.ObjectId, ref: 'Categories',
         required: true
-    },
-    stockphoto: {
-        url: String,
-        required: true
-    },
-    numOfStars: {
+    }],
+    photoUrl: {type: String},
+    numStars: {
         type: Number,
         min: 1,
         max: 5

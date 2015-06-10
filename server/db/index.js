@@ -20,6 +20,7 @@ require('./models/preferredResult');
 require('./models/review');
 require('./models/reviewHistory');
 require('./models/searchEvent');
+require('./models/cart');
 
 
 var startDbPromise = new Q(function (resolve, reject) {

@@ -40,9 +40,8 @@ var seedUsers = function() {
             last: "Holmes"
         },
         phoneNumber: "3-(672)210-7055",
-        permissions: "User",
-        buyerOf: [{}],
-        sellerOf: [{}],
+        permissions: "buyer",
+       
         photo: "https://soundcloud.com",
         location: {
             lat: 40.707,
@@ -56,9 +55,8 @@ var seedUsers = function() {
             last: "Turner"
         },
         phoneNumber: "0-(844)144-8187",
-        permissions: "User",
-        buyerOf: [{}],
-        sellerOf: [{}],
+        permissions: "buyer",
+       
         photo: "http://cornell.edu",
         location: {
             lat: 40.708,
@@ -72,9 +70,8 @@ var seedUsers = function() {
             last: "Palmer"
         },
         phoneNumber: "0-(984)656-2198",
-        permissions: "User",
-        buyerOf: [{}],
-        sellerOf: [{}],
+        permissions: "buyer",
+       
         photo: "http://nytimes.com",
         location: {
             lat: 40.701,
@@ -164,37 +161,79 @@ var seedReviews = function() {
 };
 var seedListings = function() {
     var listings = [{
-        title: "primis",
+        title: "Banana",
         quantity: 49,
         price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
         item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
         user: new User({name:{first:"user",last:"one"}})
-
-    // }, {
-    //     title: "cubilia",
-    //     quantity: 20,
-    //     price: "264.99",
-
-    // }, {
-    //     title: "nunc",
-    //     quantity: 47,
-    //     price: "463.47",
-
-    // }, {
-    //     title: "gravida",
-    //     quantity: 49,
-    //     price: "145.43",
-
-    // }, {
-    //     title: "in",
-    //     quantity: 23,
-    //     price: "289.43",
-
-    // }, {
-    //     title: "quam",
-    //     quantity: 9,
-    //     price: "233.61",
-
+    },
+    {
+        title: "Banana",
+        quantity: 49,
+        price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
+        item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
+        user: new User({name:{first:"user",last:"one"}})
+    },
+    {
+        title: "Banana",
+        quantity: 49,
+        price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
+        item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
+        user: new User({name:{first:"user",last:"one"}})
+    },{
+        title: "Banana",
+        quantity: 49,
+        price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
+        item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
+        user: new User({name:{first:"user",last:"one"}})
+    },{
+        title: "Banana",
+        quantity: 49,
+        price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
+        item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
+        user: new User({name:{first:"user",last:"one"}})
+    },{
+        title: "Banana",
+        quantity: 49,
+        price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
+        item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
+        user: new User({name:{first:"user",last:"one"}})
+    },{
+        title: "Banana",
+        quantity: 49,
+        price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
+        item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
+        user: new User({name:{first:"user",last:"one"}})
+    },{
+        title: "Banana",
+        quantity: 49,
+        price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
+        item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
+        user: new User({name:{first:"user",last:"one"}})
+    },{
+        title: "Banana",
+        quantity: 49,
+        price: "321.05",
+        description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
+        photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
+        item: [ new Item({title:"Item1", description: " Description 1", category:new Category({name:'category 1'})})],
+        user: new User({name:{first:"user",last:"one"}})
     }];
     return q.invoke(Listing, 'create', listings);
 };
