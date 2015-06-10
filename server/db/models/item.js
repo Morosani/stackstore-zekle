@@ -8,14 +8,12 @@ var schema = new mongoose.Schema({
     description: {
         type: String
     },
-    category: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Category'
-    },
-    stockphoto: {
-        data: Buffer,
-        contentType: String
-    },
-    numOfStars: {
+    categories: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Category'
+    }],
+    photoUrl: {type: String},
+    numStars: {
         type: Number,
         min: 1,
         max: 5
