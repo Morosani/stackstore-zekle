@@ -3,23 +3,30 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
     title: {
-        type: String
+        type: String,
+        required: true
     },
-    item: [{
-        type: mongoose.Schema.Types.ObjectId, ref: 'Item'
-    }],
+    item: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Item', 
+        required: true
+    },
     quantity: {
-        type: Number
+        type: Number,
+        required: true
     },
     price: {
-        type: Number
+        type: Number,
+        required: true
     },
     photo: {
-        data: Buffer,
-        contentType: String
+        url: String,
+        required: true
     },
-    user: [{
-        type: mongoose.Schema.Types.ObjectId, ref: 'User'
-    }]
+    user: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User',
+        required: true
+    }
 });
 mongoose.model('Listing', schema);

@@ -5,7 +5,15 @@ var sinon = require('sinon');
 var expect = require('chai').expect;
 var mongoose = require('mongoose');
 
-require('../../../server/db/models/');
+require('../../../server/db/models/category.js');
+require('../../../server/db/models/item.js');
+require('../../../server/db/models/listing.js');
+require('../../../server/db/models/order.js');
+require('../../../server/db/models/preferredResult.js');
+require('../../../server/db/models/review.js');
+require('../../../server/db/models/reviewHistory.js');
+require('../../../server/db/models/searchEvent.js');
+require('../../../server/db/models/user.js');
 
 var Item = mongoose.model('Item');
 var Category = mongoose.model('Category');
@@ -15,76 +23,101 @@ var Review = mongoose.model('Review');
 var ReviewHistory = mongoose.model('ReviewHistory');
 var SearchEvent = mongoose.model('SearchEvent');
 
-// more to come..
+function seed(){    
+  var user = User.create({
+    name: {
+      first: 'James',
+      last: 'Bond'
+    },
+    phoneNumber: '2125551212'
+  });
+
+  var item = Item.create({
+    title: 'martini',
+    description: 'shaken, not stirred',
+    category: 'beverage',
+    numOfStars: 5
+  });
+
+  var listing = Listing.create({
+    title: 'martini',
+    item: item._id,
+    quantity: 1,
+    price: 5,
+    user = user._id
+  })
+}
+
+
+
 
 describe ('Category model', function () {
 
-  //beforeEach
-
-  //afterEach
-
-  it('should exist', function () {
-        expect(Category).to.be.a('function');
+    beforeEach('Establish DB connection', function (done) {
+        if (mongoose.connection.db) return done();
+        mongoose.connect(dbURI, done);
+        seed();
     });
 
-    describe('category attributes', function () {
-
-      it('should have a name', function () {
-            expect(Category.name).to.be.a('string');
-        });
-
-        it('should return its subcategories when queried', function () {
-          // code to check if the category we created in beforeEach
-          // maps to its subcategories we also created in beforeEach
-        });
-
-        it('should return its parent when queried', function () {
-          // code to check if the category we created in beforeEach
-          // maps to its parent category we also created in beforeEach
-        });
+    afterEach('Clear test database', function (done) {
+        clearDB(done);
     });
+
+  // // it('should exist', function () {
+  // //       expect(Category).to.be.a('function');
+  // //   });
+
+  //   describe('category attributes', function () {
+
+  //     // it('should have a name', function () {
+  //     //       expect(Category.name).to.be.a('string');
+  //     //   });
+
+  //       it('should return its subcategories when queried', function () {
+  //         // code to check if the category we created in beforeEach
+  //         // maps to its subcategories we also created in beforeEach
+  //       });
+  //   });
 });
 
 describe ('Item model', function () {
 
-  //beforeEach
+    beforeEach('Establish DB connection', function (done) {
+        if (mongoose.connection.db) return done();
+        mongoose.connect(dbURI, done);
+        seed();
+    });
 
-  //afterEach
+    afterEach('Clear test database', function (done) {
+        clearDB(done);
+    });
 
   it('should exist', function () {
-        expect(Item).to.be.a('function');
+    expect(Item).to.be.a('function');
     });
 
-    describe('Item attributes', function () {
+  it('should return its corresponding category', function () {
+    expect(Item.category).to.equal
+  })
 
-      it('should have a title', function () {
-            expect(Item.title).to.be.a('string');
-        });
 
-        it('should have a description', function () {
-            expect(Item.description).to.be.a('string');
-        });
-
-        it('should have a category', function () {
-            expect(Item.category).to.be.a('string');
-        });
-
-        it('should have a numOfStars', function () {
-            expect(Item.numOfStars).to.be.a('number').between(1).and(5);
-        });
-
-        it('should have an itemReview', function () {
-            expect(Item.itemReview).to.be.a('string');
-        });
-
-    });
 });
 
 describe ('Listing model', function () {
 
-  //beforeEach
+    beforeEach('Establish DB connection', function (done) {
+        if (mongoose.connection.db) return done();
+        mongoose.connect(dbURI, done);
+        seed();
+    });
 
-  //afterEach
+
+
+  });
+
+    afterEach('Clear test database', function (done) {
+        clearDB(done);
+    });
 
   it('should exist', function () {
         expect(Listing).to.be.a('function');
@@ -112,9 +145,15 @@ describe ('Listing model', function () {
 
 describe ('Order model', function () {
 
-  //beforeEach
+    beforeEach('Establish DB connection', function (done) {
+        if (mongoose.connection.db) return done();
+        mongoose.connect(dbURI, done);
+        seed();
+    });
 
-  //afterEach
+    afterEach('Clear test database', function (done) {
+        clearDB(done);
+    });
 
   it('should exist', function () {
         expect(Order).to.be.a('function');
@@ -164,9 +203,15 @@ describe ('Order model', function () {
 
 describe ('Review model', function () {
 
-  //beforeEach
+    beforeEach('Establish DB connection', function (done) {
+        if (mongoose.connection.db) return done();
+        mongoose.connect(dbURI, done);
+        seed();
+    });
 
-  //afterEach
+    afterEach('Clear test database', function (done) {
+        clearDB(done);
+    });
 
   it('should exist', function () {
         expect(Review).to.be.a('function');
@@ -192,9 +237,15 @@ describe ('Review model', function () {
 
 describe ('ReviewHistory model', function () {
 
-  //beforeEach
+    beforeEach('Establish DB connection', function (done) {
+        if (mongoose.connection.db) return done();
+        mongoose.connect(dbURI, done);
+        seed();
+    });
 
-  //afterEach
+    afterEach('Clear test database', function (done) {
+        clearDB(done);
+    });
 
   it('should exist', function () {
         expect(ReviewHistory).to.be.a('function');
@@ -214,9 +265,15 @@ describe ('ReviewHistory model', function () {
 
 describe ('SearchEvent model', function () {
 
-  //beforeEach
+    beforeEach('Establish DB connection', function (done) {
+        if (mongoose.connection.db) return done();
+        mongoose.connect(dbURI, done);
+        seed();
+    });
 
-  //afterEach
+    afterEach('Clear test database', function (done) {
+        clearDB(done);
+    });
 
   it('should exist', function () {
         expect(SearchEvent).to.be.a('function');

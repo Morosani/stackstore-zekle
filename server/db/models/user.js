@@ -5,24 +5,28 @@ var mongoose = require('mongoose');
 var schema = new mongoose.Schema({
     name: {
         first: String,
-        last: String
+        last: String,
+        required: true
     },
 
     phoneNumber: {
-        type: String
+        type: String,
+        required: true
     },
 
     permissions: {
-        type: String
+        type: String,
+        enum: ['authenticated', 'unauthenticated', 'admin'],
+        required: true
     },
 
-    buyerOf: {
-        categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
-    },
+    // buyerOf: {
+    //     categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
+    // },
 
-    sellerOf: {
-        categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
-    },
+    // sellerOf: {
+    //     categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
+    // },
 
     reviewHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'ReviewHistory'},
 
@@ -33,14 +37,14 @@ var schema = new mongoose.Schema({
    // searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
    //
     photo: {
-        data: Buffer,
-        contentType: String,
-        url: String
+        url: String,
+        required: true,
     },
 
     location: {
         lat: Number,
-        lng: Number
+        lng: Number,
+        required: true
     },
 
     email: {

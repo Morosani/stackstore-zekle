@@ -3,17 +3,20 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
     title: {
-        type: String
+        type: String,
+        required: true
     },
     description: {
-        type: String
+        type: String,
+        required: true
     },
     category: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Category'
+        type: mongoose.Schema.Types.ObjectId, ref: 'Category',
+        required: true
     },
     stockphoto: {
-        data: Buffer,
-        contentType: String
+        url: String,
+        required: true
     },
     numOfStars: {
         type: Number,
