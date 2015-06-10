@@ -7,12 +7,6 @@ var Categories = mongoose.model('Category');
 
 router.get('/', function(req, res, next) {
   Categories.find({}).exec().then(function(categories) {
-    res.status(200).send(categories);
-  })
+    res.send(categories);
+  }).then(null, next);
 })
-//
-//router.get('/:id', function(req, res, next) {
-//  Categories.findOne({ req.params.id: { $in: subcategories } }).exec().then(function(category) {
-//    res.status(200).send(category);
-//  })
-//})

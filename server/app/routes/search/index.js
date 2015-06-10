@@ -5,10 +5,10 @@ var _ = require('lodash');
 var mongoose = require('mongoose');
 var Listings = mongoose.model('Listing');
 
-router.post('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
   Listings.find().populate('item').find(req.body).exec().then(function(listings) {
-    res.status(200).send(listings);
-  })
+    res.send(listings);
+  }).then(null, next);
 })
 
 //router.post('/', function(req, res) {
