@@ -16,7 +16,6 @@ require('./models/category');
 require('./models/item');
 require('./models/listing');
 require('./models/order');
-require('./models/preferredResult');
 require('./models/review');
 require('./models/reviewHistory');
 require('./models/searchEvent');

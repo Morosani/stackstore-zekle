@@ -4,9 +4,14 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
     name: {
-        first: String,
-        last: String,
-        required: true
+        first:{
+            type: String,
+            required: true
+        },
+        last: {
+            type: String,
+            required: true
+        }
     },
 
     phoneNumber: {
@@ -40,9 +45,14 @@ var schema = new mongoose.Schema({
     photoUrl:{type: String},
 
     location: {
-        lat: Number,
-        lng: Number,
-        required: true
+        lat: {
+            type: Number,
+            required: true
+        },
+        lng: {
+            type: Number,
+            required: true
+        },
     },
 
     email: {

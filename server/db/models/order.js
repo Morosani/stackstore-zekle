@@ -11,7 +11,7 @@ var schema = new mongoose.Schema({
     totalPrice: {
     	type: Number,
     	required: true
-    }
+    },
 	cart: {
 		type:mongoose.Schema.Types.ObjectId,
 		ref: 'Cart'
