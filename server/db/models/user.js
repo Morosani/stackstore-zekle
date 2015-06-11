@@ -19,11 +19,7 @@ var schema = new mongoose.Schema({
         required: true
     },
 
-    permissions: {
-        type: String,
-        enum: ['admin'],
-        required: true
-    },
+    admin:{type:Boolean},
 
     // buyerOf: {
     //     categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
