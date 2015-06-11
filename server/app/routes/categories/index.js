@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/',function(req,res,next){
 	console.log(req.body); 
-	Categories.create(req.body).exec().then(function(category){
+	Categories.create(req.body).then(function(category){
 		res.send(category); 
 	}).then(null,next);
 })
