@@ -14,4 +14,5 @@ app.controller('ListingsCtrl', function($scope, Listings) {
 		$scope.listings = data;
 
 	})
+	
 })
