@@ -10,3 +10,10 @@ router.get('/', function(req, res, next) {
     res.send(categories);
   }).then(null, next);
 })
+
+router.post('/',function(req,res,next){
+	console.log(req.body); 
+	Categories.create(req.body).exec().then(function(category){
+		res.send(category); 
+	}).then(null,next);
+})
