@@ -6,10 +6,9 @@ var schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    item: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Item', 
-        required: true
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category"
     },
     quantity: {
         type: Number,
@@ -19,7 +18,7 @@ var schema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    user: {
+    seller: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User',
         required: true
@@ -28,7 +27,14 @@ var schema = new mongoose.Schema({
         type:String,
         required:true
     },
-    photoUrl:{type:String}
-    
+    photoUrl:{
+        type:String
+    },
+    customerReviews: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Review'
+        }]
 });
 mongoose.model('Listing', schema);
+
+// need method for calculating number of reviews
