@@ -1,9 +1,11 @@
-<div class="input-group">
-	<select name="" id="">
-		<option value="{{category.name}}"ng-repeat="category in categories">{{category.name}}</option>
+<div ng-model="search" class="input-group">
+	<select ng-model="search.category" name="" id="">
+		<option value="{{category._id}}"ng-repeat="category in categories">{{category.name}}</option>
 	</select>
-	<input type="text" class="form-control" aria-label="...">
+	<input ng-model="search.input" type="text" class="form-control" aria-label="...">
 	<span class="input-group-btn">
-		<button class="btn btn-default">Search</button>
+		<button ng-click="fireSearch()" class="btn btn-default">Search</button>
 	</span>
+
 </div><!-- /input-group -->
+
