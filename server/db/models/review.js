@@ -15,11 +15,6 @@ var schema = new mongoose.Schema({
     comment: {
         type: String,
         required: true
-    },
-    item: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Item',
-        required:true
     }
 });
 //schema.method.Avgscores

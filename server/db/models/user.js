@@ -48,7 +48,7 @@ var schema = new mongoose.Schema({
         lng: {
             type: Number,
             required: true
-        },
+        }
     },
 
     email: {
