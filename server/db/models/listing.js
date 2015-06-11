@@ -6,10 +6,10 @@ var schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    category: {
+    category: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category"
-    },
+    }],
     quantity: {
         type: Number,
         required: true
