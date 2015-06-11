@@ -36,5 +36,4 @@ var schema = new mongoose.Schema({
         }]
 });
 mongoose.model('Listing', schema);
-
 // need method for calculating number of reviews

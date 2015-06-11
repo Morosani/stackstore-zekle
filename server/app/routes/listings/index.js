@@ -3,7 +3,6 @@ var router = require('express').Router();
 module.exports = router;
 var _ = require('lodash');
 var mongoose = require('mongoose');
-
 var Listing = mongoose.model('Listing');
 
 router.get('/', function(req, res, next) {
