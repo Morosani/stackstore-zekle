@@ -1,0 +1,15 @@
+
+<form ng-model = "CategoryForm" id="create-category-form" name="CategoryForm" ng-submit="CategoryForm.$valid && createCategory()">
+    <alert type="danger" ng-show="error">
+        {{ error }}
+    </alert>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input name="title" ng-model = "CategoryForm.title" novalidate type="text" class="form-control" id="title" placeholder="Enter title">
+    </div>
+    
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<pre>{{CategoryForm.title}}
+</pre>
