@@ -23,7 +23,6 @@ var mongoose = require('mongoose');
 var connectToDb = require('./server/db');
 var User = mongoose.model('User');
 var Category = mongoose.model('Category');
-var Item = mongoose.model('Item');
 var Review = mongoose.model('Review');
 var Listing = mongoose.model('Listing');
 var q = require('q');
