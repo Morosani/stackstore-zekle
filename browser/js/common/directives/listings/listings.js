@@ -16,6 +16,7 @@ app.controller('ListingsCtrl', function($scope, Listings,SearchResults) {
 	});
 	$scope.$on("search",function(){
 		$scope.listings = SearchResults.getResults();
+		$scope.searchRes = true; 
 		console.log("$scope listings ", $scope.listings); 
 	})
 
