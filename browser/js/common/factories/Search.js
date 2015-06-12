@@ -1,8 +1,8 @@
 app.factory('Search', function($http) {
 	return {
 		submitSearch: function(category, str) {
-			return $http.get('/api/search', {params: {
-					category: category,
+			return $http.post('/api/search', {
+					categoryId: category,
 					searchStr: str
 				}})
 				.then(function(searchResults) {
