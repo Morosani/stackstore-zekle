@@ -1,13 +1,17 @@
 app.factory('Search', function($http) {
 	return {
 		submitSearch: function(category, str) {
+			console.log('search factory firing');
+			console.log('submitSearch category: ', category);
+			console.log('submitSearch str: ', str);
 				return $http.get('/api/search', {
-						categoryId: category,
-						searchStr: str
-					}
+						params: {
+							categoryId: category,
+							searchStr: str
+						}
 				})
-			.then(function(searchResults) {
-				return searchResults;
+			.then(function(response) {
+				return response.data;
 			});
 	}
 }

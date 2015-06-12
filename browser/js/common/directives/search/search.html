@@ -1,4 +1,4 @@
-<div ng-model="search" class="input-group">
+<div class="input-group">
 	<select ng-model="search.category" name="" id="">
 		<option value="{{category._id}}"ng-repeat="category in categories">{{category.name}}</option>
 	</select>
@@ -9,3 +9,4 @@
 
 </div><!-- /input-group -->
 
+{{ search.input }}
