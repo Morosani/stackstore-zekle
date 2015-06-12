@@ -5,9 +5,9 @@ app.factory('Listings',function($http){
 				return response.data; 
 			})
 		},
-		create:function(formData){
+		createListing:function(formData){
 			console.log("listings factory form data: ",formData); 
-			return $http.post('/api/listings/create',{category:formData.category,title:formData.title,description:formData.description,price:formData.price,qty:formData.qty}).then(function(response){
+			return $http.post('/api/listings/create',{category:formData.category,title:formData.title,description:formData.description,price:formData.price,quantity:formData.quantity}).then(function(response){
 			});
 		}
 	}

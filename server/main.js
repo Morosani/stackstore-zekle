@@ -1,7 +1,7 @@
 'use strict';
 var chalk = require('chalk');
 
-// Requires in ./db/index.js -- which returns a promise that represents
+// Requires in ./db/create.js -- which returns a promise that represents
 // mongoose establishing a connection to a MongoDB database.
 var startDb = require('./db');
 

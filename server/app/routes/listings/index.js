@@ -31,13 +31,6 @@ router.get('/:listingId', function(req, res, next) {
   }).then(null, next);
 });
 
-//router.get('/category/:id', function(req, res, next) {
-//  Listing.populate('item').populate('category').find({ category.})
-//  Listing.find().populate('item').find({items.category :req.params.id}).exec().then(function(listings){
-//    res.status(200).send(listings);
-//  })
-//})
-
 router.post('/create', function(req, res, next) {
   console.log('hitting the create route'); 
   console.log(req.body);

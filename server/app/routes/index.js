@@ -9,6 +9,7 @@ router.use('/listings', require('./listings'));
 router.use('/orders', require('./orders'));
 router.use('/search', require('./search'));
 router.use('/categories', require('./categories'));
+router.use('/register', require('./register'));
 
 
 // Make sure this is after all of

@@ -1,4 +1,5 @@
 app.config(function ($stateProvider) {
+
     $stateProvider.state('listingState', {
         url: '/listings',
         templateUrl: 'js/listings/index.html'
