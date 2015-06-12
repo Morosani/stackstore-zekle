@@ -3,15 +3,13 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-    name: {
-        first:{
-            type: String,
-            required: true
-        },
-        last: {
-            type: String,
-            required: true
-        }
+    firstName:{
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
     },
 
     phoneNumber: {
@@ -21,23 +19,12 @@ var schema = new mongoose.Schema({
 
     admin:{type:Boolean},
 
-    // buyerOf: {
-    //     categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
-    // },
-
-    // sellerOf: {
-    //     categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}]
-    // },
-
     reviewHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'ReviewHistory'},
 
     cart: {type: mongoose.Schema.Types.ObjectId, ref: 'Cart'},
 
     orders: [{type: mongoose.Schema.Types.ObjectId, ref:'Order'}],
-
-   // searchHistory: [{type: mongoose.Schema.Types.ObjectId, ref: 'SearchEvent'}],
-   //
-
+    
     photoUrl:{type: String},
 
     location: {
