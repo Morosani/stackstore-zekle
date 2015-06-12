@@ -10,8 +10,8 @@ app.factory('Search', function($http) {
 							searchStr: str
 						}
 				})
-			.then(function(searchResults) {
-				return searchResults;
+			.then(function(response) {
+				return response.data;
 			});
 	}
 }

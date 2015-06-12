@@ -7,12 +7,15 @@ app.directive('listings', function() {
 })
 
 // Injecting Listings Factory found at factories/Listings.js
-app.controller('ListingsCtrl', function($scope, Listings) {
-	$scope.listings;
-	Listings.getAll().then(function(data) {
-		console.log("running get listings controller");
-		$scope.listings = data;
-
-	});
+app.controller('ListingsCtrl', function($scope, Listings,SearchResults) {
+	//if searchResults exist, $scope.listings = searchresults else get all listings
+	$scope.listings=SearchResults.getResults();
+	console.log('$scope.listings ' , $scope.listings); 
+	if($scope.listings.length<=0){
+		Listings.getAll().then(function(data) {
+			console.log("running get listings controller");
+			$scope.listings = data;
+		});
+	}
 
 });

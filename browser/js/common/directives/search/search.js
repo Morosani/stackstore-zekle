@@ -17,7 +17,7 @@ app.directive('search', function(){
 });
 
 
-app.controller('SearchCtrl',function($scope, $state, Categories,Search){
+app.controller('SearchCtrl',function($scope, $state, Categories,Search,SearchResults){
 	$scope.categories;
 	Categories.getAll().then(function(data){
 		console.log("Search controller getting categories");
@@ -29,9 +29,8 @@ app.controller('SearchCtrl',function($scope, $state, Categories,Search){
 	$scope.fireSearch = function(){
 		console.log('firing search');
 		Search.submitSearch($scope.search.category,$scope.search.input).then(function (results){
-			$scope.searchResults = results;
 			console.log('these are search results: ', results)
-			$state.go('searchState', results);
+			SearchResults.setResults(results); 
 		});
 	}
 })
