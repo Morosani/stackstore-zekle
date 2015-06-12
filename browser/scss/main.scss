@@ -1,6 +1,8 @@
 * {
   box-sizing: border-box;
 }
+$blue:#0065D4;
+$teal:#00EBFF;
 
 @mixin clearfix {
   &:after {

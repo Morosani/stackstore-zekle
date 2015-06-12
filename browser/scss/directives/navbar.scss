@@ -1,32 +1,37 @@
 $purple: rgb(48, 34, 74);
+$offwhite:darken(white,10%);
 navbar {
 
   display: block;
-  background-color: rgb(48, 34, 74);
-
+  background-color: black;
+  // border-bottom: 4px solid darken($offwhite,20%);
+  search{
+    float:right;
+  }
   fullstack-logo {
     padding-top: 0px;
     margin-right: 20px;
-    width: 30px;
+    width: 50px;
   }
 
   a {
-    color: white;
+    color: $offwhite;
+    font-size:1.1em;
     &:hover {
-      color: darken($purple, 40%);
+      
     }
   }
 
   .nav > li > a {
     cursor: pointer;
     &.active {
-      color: #F8E81C;
+      color: $teal;
     }
     &:hover {
       transition: color 0.2s;
     }
     &:focus {
-      color: #F8E81C;
+      color: $teal;
       background: transparent;
     }
   }
@@ -43,7 +48,7 @@ navbar {
       color: white;
     }
     a {
-      color: #F8E81C;
+      color: $teal;
       cursor: pointer;
     }
   }
