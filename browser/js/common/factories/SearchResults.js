@@ -1,14 +1,12 @@
-app.factory('SearchResults', function(){
+app.factory('SearchResults', function($rootScope){
 	var searchResults = []; 
 	return{
 		setResults:function(data){
-			console.log("search results factory, settingResults")
 			searchResults = data; 
-
+			$rootScope.$broadcast("search"); 
 		},
 		getResults:function () {
-			console.log("search results factory, gettingResults")
-			return searchResults ? "no data":searchResults; 
+			return searchResults; 
 		}
 	}
 })
