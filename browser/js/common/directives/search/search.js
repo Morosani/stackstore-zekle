@@ -17,19 +17,21 @@ app.directive('search', function(){
 });
 
 
-app.controller('SearchCtrl',function($scope,Categories,Search){
-	$scope.categories; 
+app.controller('SearchCtrl',function($scope, $state, Categories,Search){
+	$scope.categories;
 	Categories.getAll().then(function(data){
-		console.log("Search controller getting categories"); 
-		$scope.categories= data; 
+		console.log("Search controller getting categories");
+		$scope.categories= data;
 	})
 	$scope.search;
-	
 
-	$scope.fireSearch=function(){
-		$scope.search.input; 
+
+	$scope.fireSearch = function(){
+		console.log('firing search');
 		Search.submitSearch($scope.search.category,$scope.search.input).then(function (results){
-			$scope.searchResults = results; 
-		}); 
-	} 
+			$scope.searchResults = results;
+			console.log('these are search results: ', results)
+			$state.go('searchState', results);
+		});
+	}
 })

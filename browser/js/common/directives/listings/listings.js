@@ -13,6 +13,6 @@ app.controller('ListingsCtrl', function($scope, Listings) {
 		console.log("running get listings controller");
 		$scope.listings = data;
 
-	})
-	
-})
+	});
+
+});
