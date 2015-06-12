@@ -14,6 +14,11 @@
         </select>
     </div>
     <div class="form-group">
+        <label for="img">
+            <input type="file">
+        </label>
+    </div>
+    <div class="form-group">
         <label for="">Description</label>
         <input ng-model="ListingForm.description" novalidate type="text" ng-model="" class="form-control" id="" placeholder="Enter description">
     </div>
@@ -30,7 +35,7 @@
 </form>
 
 <h3>{{ListingForm.title}}
-{{ListingForm.category}}
-{{ListingForm.description}}
-{{ListingForm.price|currency}}
-{{ListingForm.qty}}</h3>
+    {{ListingForm.category}}
+    {{ListingForm.description}}
+    {{ListingForm.price|currency}}
+    {{ListingForm.qty}}</h3>

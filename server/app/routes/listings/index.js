@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/category/:id', function(req, res, next) {
   Listing.find({}).populate('item').exec().then(function(items) {
-    items.find({})
+    items.find({});
 
     res.send(items);
   }).then(null, next);

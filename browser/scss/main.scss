@@ -9,7 +9,10 @@
     clear: both;
   }
 }
-
+body{
+	font-family: 'Muli', sans-serif;
+}
+       
 @import 'directives/main';
 @import 'home/main';
 @import 'about/main';
