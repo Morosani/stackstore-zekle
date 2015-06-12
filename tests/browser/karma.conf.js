@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = function (config) {
 
     var filesCollection = [
-        'node_modules/lodash/index.js',
+        'node_modules/lodash/create.js',
         'node_modules/angular/angular.js',
         'node_modules/angular-ui-router/release/angular-ui-router.js',
         'node_modules/angular-bootstrap/dist/ui-bootstrap.js',

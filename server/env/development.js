@@ -1,19 +1,25 @@
 module.exports = {
   "DATABASE_URI": "mongodb://localhost:27017/fsg-app",
-  "SESSION_SECRET": "Optimus Prime is my real dad",
+  "SESSION_SECRET": "There is no fate but what we make",
   "TWITTER": {
-    "consumerKey": "INSERT_TWITTER_CONSUMER_KEY_HERE",
-    "consumerSecret": "INSERT_TWITTER_CONSUMER_SECRET_HERE",
-    "callbackUrl": "INSERT_TWITTER_CALLBACK_HERE"
+    "consumerKey": "NU9QvilIv4bb090mWzQQHDqJ7",
+    "consumerSecret": "ARNeA4xyaTPlVV4T7xptHhGXetFyrm1ZskUhUdESnyjjBubqyv",
+    "callbackUrl": "/auth/twitter/callback"
   },
   "FACEBOOK": {
-    "clientID": "INSERT_FACEBOOK_CLIENTID_HERE",
-    "clientSecret": "INSERT_FACEBOOK_CLIENT_SECRET_HERE",
-    "callbackURL": "INSERT_FACEBOOK_CALLBACK_HERE"
+    "clientID": "1597172593898449",
+    "clientSecret": "789901e969ad762e77ed7888436c6318",
+    "callbackURL": "/auth/facebook/callback"
   },
   "GOOGLE": {
-    "clientID": "INSERT_GOOGLE_CLIENTID_HERE",
-    "clientSecret": "INSERT_GOOGLE_CLIENT_SECRET_HERE",
-    "callbackURL": "INSERT_GOOGLE_CALLBACK_HERE"
+    "clientID": "806320124768-vm4t53pkdm07ocgkap3pvtqvue7jjt7i.apps.googleusercontent.com",
+    "clientSecret": "H3dBz6rr_y7-gxSNTHvFXrfS",
+    "callbackURL": "/auth/google/callback"
+  },
+  "STRIPE": {
+    "clientID": "Zekle",
+    //Note: Secret is testing version....live version on Stripe account page
+    "clientSecret": "sk_test_qhzQZUmT0xx9LVwnCTpWidnc",
+    "callbackURL": "/auth/stripe/callback"
   }
 };
