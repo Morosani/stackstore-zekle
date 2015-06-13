@@ -1,41 +1,44 @@
-    <form id="registration-form" ng-model="registrationForm" name="registrationForm" ng-class="form-group" ng-submit="registrationForm.$valid && createUser()" novalidate>
+    <form id="registration-form" name="registrationForm" ng-class="form-group" ng-submit="SignupForm.$valid && createUser()" novalidate>
 
         <!-- FIRST NAME -->
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.firstName.$invalid && !registrationForm.firstName.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : SignupForm.firstName.$invalid && !SignupForm.firstName.$pristine }">
             <label>First Name</label>
-            <input type="text" name="firstName" class="form-control" ng-model="registrationForm.firstName" required>
-            <p ng-show="registrationForm.firstName.$invalid && !registrationForm.firstName.$pristine" class="help-block">first name is required.</p>
+            <input type="text" name="firstName" class="form-control" ng-model="SignupForm.firstName" required>
+            <p ng-show="SignupForm.firstName.$invalid && !SignupForm.firstName.$pristine" class="help-block">first name is required.</p>
         </div>
 
         <!-- LAST NAME -->
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.lastName.$invalid && !registrationForm.lastName.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : SignupForm.lastName.$invalid && !SignupForm.lastName.$pristine }">
             <label>Last Name</label>
-            <input type="text" name="lastName" class="form-control" ng-model="registrationForm.lastName" required>
-            <p ng-show="registrationForm.lastName.$invalid && !registrationForm.lastName.$pristine" class="help-block">last name is required.</p>
+            <input type="text" name="lastName" class="form-control" ng-model="SignupForm.lastName" required>
+            <p ng-show="SignupForm.lastName.$invalid && !SignupForm.lastName.$pristine" class="help-block">last name is required.</p>
         </div>
 
         <!-- EMAIL -->
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.email.$invalid && !registrationForm.email.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : SignupForm.email.$invalid && !SignupForm.email.$pristine }">
             <label>Email</label>
-            <input type="email" name="email" class="form-control" ng-model="registrationForm.email" ng-required="true">
-            <p ng-show="registrationForm.email.$invalid && !registrationForm.email.$pristine" class="help-block">please enter a valid email.</p>
+            <input type="email" name="email" class="form-control" ng-model="SignupForm.email" ng-required="true">
+            <p ng-show="SignupForm.email.$invalid && !SignupForm.email.$pristine" class="help-block">please enter a valid email.</p>
         </div>
 
         <!-- PASSWORD -->
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.password.$invalid && !registrationForm.password.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : SignupForm.password.$invalid && !SignupForm.password.$pristine }">
             <label>Password</label>
-            <input type="password" name="password" class="form-control" ng-model="registrationForm.password" ng-minlength="8" ng-required="true">
-            <p ng-show="registrationForm.password.$error.minlength" class="help-block">password must be at least 8 characters.</p>
+            <input type="password" name="password" class="form-control" ng-model="SignupForm.password" ng-minlength="8" ng-required="true">
+            <p ng-show="SignupForm.password.$error.minlength" class="help-block">password must be at least 8 characters.</p>
         </div>
 
         <!-- PHONE NUMBER -->
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.password.$invalid && !registrationForm.password.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : SignupForm.password.$invalid && !SignupForm.password.$pristine }">
             <label>Phone Number</label>
-            <input type="number" name="phoneNumber" class="form-control" ng-model="registrationForm.phoneNumber" ng-minlength="10" ng-maxlength="10" ng-required="true">
-            <p ng-show="registrationForm.phoneNumber.$error.required" class="help-block">phone number is required.</p>
-            <p ng-show="registrationForm.phoneNumber.$error.minlength" class="help-block">must be 10 digits in length</p>
-            <p ng-show="registrationForm.phoneNumber.$invalid && !registrationForm.phoneNumber.$pristine" class="help-block">not a valid phone number</p>
+            <input type="text" name="phoneNumber" class="form-control" ng-model="SignupForm.phoneNumber" ng-minlength="10" ng-maxlength="10" ng-required="true">
+            <p ng-show="SignupForm.phoneNumber.$error.required" class="help-block">phone number is required.</p>
+            <p ng-show="SignupForm.phoneNumber.$error.minlength" class="help-block">must be 10 digits in length</p>
+            <p ng-show="SignupForm.phoneNumber.$invalid && !SignupForm.phoneNumber.$pristine" class="help-block">not a valid phone number</p>
         </div>
 
         <button type="submit" class="btn btn-default">Submit</button>
+
     </form>
+
+    <!-- {{ SignupForm | json }} -->

@@ -11,9 +11,9 @@ app.config(function ($stateProvider) {
 
 app.controller('signupController', function ($scope, Signup) {
 
-    $scope.registrationForm
+    // $scope.registrationForm;
     $scope.createUser = function() {
-        User.create($scope.registrationForm)
+        User.create($scope.SignupForm);
     }
 });
 
