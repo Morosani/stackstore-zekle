@@ -37,8 +37,12 @@
             <p ng-show="SignupForm.phoneNumber.$invalid && !SignupForm.phoneNumber.$pristine" class="help-block">not a valid phone number</p>
         </div>
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <input value="Create Account" type="submit" class="btn btn-default"></input>
 
     </form>
+    {{SignupForm | json}}
+    {{SignupForm.valid}}
+    <button  class= "btn btn-danger" ng-click="googleAuth()">Login with Google</button>
+
 
     <!-- {{ SignupForm | json }} -->
