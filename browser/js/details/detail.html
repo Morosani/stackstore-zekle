@@ -1,0 +1,6 @@
+<div class="col-md-12 listing">
+  <h2 class="title">{{listing.title}}</h2>
+  <img class="img" src="{{listing.photoUrl}}" alt="">
+  <p class="description">{{listing.description | limitTo:letterLimit }}</p>
+  <h3 class="price">{{listing.price|currency}}</h3>
+</div>

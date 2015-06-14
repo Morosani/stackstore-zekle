@@ -9,11 +9,16 @@ app.config(function ($stateProvider) {
     	templateUrl:'/js/listings/create.html',
     	controller:'CreateListingCtrl'
     })
+    $stateProvider.state('listingState.details',{
+        url:'/details',
+        templateUrl:'/js/details/detail.html',
+        controller:'DetailsListingCtrl'
+    })
 });
 
 // ListingsCtrl is in /js/common/directives/listings/listings.js
 
-app.controller('CreateListingCtrl', function($scope,Listings,Categories){   
+app.controller('CreateListingCtrl', function($scope,Listings,Categories){
     Categories.getAll().then(function(results){
         $scope.categories = results;
     });
@@ -21,5 +26,8 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
     $scope.createListing= function(){
         Listings.create($scope.ListingForm)
     }
+})
 
+app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories){
+    $scope.listing = Listings.listing;
 })
