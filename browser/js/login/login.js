@@ -8,7 +8,7 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('LoginCtrl', function ($scope, AuthService, $state) {
+app.controller('LoginCtrl', function ($scope, $window, AuthService, $state) {
 
     $scope.login = {};
     $scope.error = null;
@@ -24,5 +24,10 @@ app.controller('LoginCtrl', function ($scope, AuthService, $state) {
         });
 
     };
+
+    $scope.googleAuth = function(){
+        console.log("Authenticating with Google OAuth2");    
+        $window.location.href="/auth/google"; 
+    }
 
 });

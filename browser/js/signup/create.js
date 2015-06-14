@@ -9,11 +9,18 @@ app.config(function ($stateProvider) {
 });
 
 
-app.controller('signupController', function ($scope, Signup) {
+app.controller('signupController', function ($scope,$window,AuthService, Signup) {
 
-    // $scope.registrationForm;
+    $scope.SignupForm;
     $scope.createUser = function() {
-        User.create($scope.SignupForm);
+    	console.log("called create user");
+        Signup.createUser($scope.SignupForm).then(response){
+        	console.log("User creation response ",response);
+        };
+    }
+     $scope.googleAuth = function(){
+        console.log("Authenticating with Google OAuth2");    
+        $window.location.href="/auth/google"; 
     }
 });
 

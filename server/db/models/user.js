@@ -13,8 +13,7 @@ var schema = new mongoose.Schema({
     },
 
     phoneNumber: {
-        type: String,
-        required: true
+        type: String
     },
 
     admin:{type:Boolean},
