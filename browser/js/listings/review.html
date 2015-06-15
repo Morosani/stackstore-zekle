@@ -1,0 +1,18 @@
+
+<form id="create-review-form" name="ReviewForm" ng-submit="ReviewForm.$valid && createReview()">
+    <alert type="danger" ng-show="error">
+        {{ error }}
+    </alert>
+    <div class="form-group">
+        <label>Review</label><br>
+        <span>How many stars would you give this item? </span><rating max="5" ng-model="ReviewForm.stars"></rating>
+        <textarea id="review-comment" rows="10" cols="50" ng-model="ReviewForm.comment" novalidate class="form-control" placeholder="What would you like to say about this item?"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<pre>
+    {{ReviewForm.comment}}
+    {{ReviewForm.stars}}
+
+</pre>

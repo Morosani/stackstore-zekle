@@ -11,14 +11,14 @@ app.config(function ($stateProvider) {
     	controller:'CreateListingCtrl'
     })
     $stateProvider.state('listingState.details',{
-        url:'/details',
-        templateUrl:'/js/details/detail.html',
+        url:'/:id',
+        templateUrl:'/js/listings/detail.html',
         controller:'DetailsListingCtrl'
     })
     $stateProvider.state('listingState.details.review',{
-        url:'/details/review',
-        templateUrl:'/js/details/detail.html',
-        controller:'DetailsListingCtrl'
+        url:'/review',
+        templateUrl:'/js/listings/review.html'
+        controller:'ReviewListingCtrl'
     })
 });
 
@@ -39,6 +39,19 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
 })
 
 app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories, AuthService){
-    $scope.listing = Listings.listing;
+    Listings.getOne($stateParams.id).then(function(response) {
+        $scope.listing = response;
+    });
     $scope.isLoggedIn = AuthService.isAuthenticated();
+    $scope.changeState = $state.go('listingState.details.review');
+})
+
+app.controller('ReviewListingCtrl', function($scope, $stateParams, Listings, Categories, AuthService){
+    // Listings.getOne($stateParams.id).then(function(response) {
+    //     $scope.listing = response;
+    // });
+    $scope.isLoggedIn = AuthService.isAuthenticated();
+    $scope.createReview = function(){
+        Review.create($scope.ReviewForm)
+    }
 })
