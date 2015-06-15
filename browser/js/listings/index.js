@@ -17,7 +17,7 @@ app.config(function ($stateProvider) {
     })
     $stateProvider.state('listingState.details.review',{
         url:'/review',
-        templateUrl:'/js/listings/review.html'
+        templateUrl:'/js/listings/review.html',
         controller:'ReviewListingCtrl'
     })
 });
@@ -43,15 +43,20 @@ app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Cat
         $scope.listing = response;
     });
     $scope.isLoggedIn = AuthService.isAuthenticated();
-    $scope.changeState = $state.go('listingState.details.review');
+    // $scope.changeState = $state.go('listingState.details.review');
 })
 
-app.controller('ReviewListingCtrl', function($scope, $stateParams, Listings, Categories, AuthService){
+app.controller('ReviewListingCtrl', function($scope, $stateParams, Listings, Categories, Review, AuthService){
     // Listings.getOne($stateParams.id).then(function(response) {
     //     $scope.listing = response;
     // });
+    console.log($scope)
+    console.log("this is $scope.ReviewForm", $scope.ReviewForm);
     $scope.isLoggedIn = AuthService.isAuthenticated();
     $scope.createReview = function(){
-        Review.create($scope.ReviewForm)
+        console.log('HELLOOWOEWFJEFWEWOJ?!?!?!?!?!')
+        // Review.createReview($scope.ReviewForm).then(function(review) {
+        //     console.log("Created review: ", review);
+        // })
     }
 })

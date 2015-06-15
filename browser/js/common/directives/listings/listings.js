@@ -21,10 +21,10 @@ app.controller('ListingsCtrl', function($scope, $state, Listings,SearchResults) 
 		$scope.detailsId = id;
 		Listings.getOne(id).then(function(data) {
 			$scope.listing = Listings.listing = data;
-		});*/
+		});
 
 		$state.go('listingState.details');
-	}
+	}*/
 
 
 	$scope.$on("search",function(){
