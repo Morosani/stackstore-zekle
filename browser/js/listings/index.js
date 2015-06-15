@@ -2,7 +2,8 @@ app.config(function ($stateProvider) {
 
     $stateProvider.state('listingState', {
         url: '/listings',
-        templateUrl: 'js/listings/index.html'
+        templateUrl: 'js/listings/index.html',
+        controller:'SingleListingCtrl'
     });
     $stateProvider.state('listingState.create',{
     	url:'/create',
@@ -14,9 +15,18 @@ app.config(function ($stateProvider) {
         templateUrl:'/js/details/detail.html',
         controller:'DetailsListingCtrl'
     })
+    $stateProvider.state('listingState.details.review',{
+        url:'/details/review',
+        templateUrl:'/js/details/detail.html',
+        controller:'DetailsListingCtrl'
+    })
 });
 
 // ListingsCtrl is in /js/common/directives/listings/listings.js
+
+app.controller('SingleListingCtrl', function($scope, AuthService){
+    $scope.isLoggedIn = AuthService.isAuthenticated();
+})
 
 app.controller('CreateListingCtrl', function($scope,Listings,Categories){
     Categories.getAll().then(function(results){
