@@ -29,12 +29,10 @@ var schema = new mongoose.Schema({
 
     location: {
         lat: {
-            type: Number,
-            required: true
+            type: Number
         },
         lng: {
-            type: Number,
-            required: true
+            type: Number
         }
     },
 
