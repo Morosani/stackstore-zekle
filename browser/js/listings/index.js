@@ -28,6 +28,7 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
     }
 })
 
-app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories){
+app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories, AuthService){
     $scope.listing = Listings.listing;
+    $scope.isLoggedIn = AuthService.isAuthenticated();
 })
