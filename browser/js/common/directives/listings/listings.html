@@ -15,7 +15,7 @@
 				<h3 class="price">{{listing.price|currency}}</h3>
 				<button ng-click="getDetails(listing)" class="btn btn-primary">Product Details</button>
 				<!-- <a ui-sref="listingDetails">Details state?</a> -->
-				<button class="btn btn-primary">Add To Cart</button>
+				<button ng-click="addListingToCart(listing)" class="btn btn-primary">Add To Cart</button>
 			</div>
 		</div>
 	</div>
