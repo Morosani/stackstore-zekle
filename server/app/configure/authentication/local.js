@@ -52,7 +52,13 @@ module.exports = function (app) {
         console.log("hitting signup route");
         UserModel.findOne({email:req.body.email}).exec().then(function(searchRes){
             console.log("find by email ", searchRes);
-            res.send(200); 
+            if(!searchRes){
+                console.log("user not found, creating user");
+                UserModel.create(req.body).then(function(createRes){
+                    console.log("create results ",createRes);
+                    res.status(200).send({ createRes: _.omit(createRes.toJSON(), ['password', 'salt']) });
+                })
+            }
         },next)
     })
 
