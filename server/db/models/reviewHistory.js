@@ -1,3 +1,4 @@
+
 'use strict';
 var mongoose = require('mongoose');
 
@@ -18,3 +19,4 @@ var schema = new mongoose.Schema({
 // };
 //schema.method.Avgscores
 mongoose.model('ReviewHistory', schema);
+
