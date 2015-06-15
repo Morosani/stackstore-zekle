@@ -4,31 +4,31 @@
         {{ error }}
     </alert>
     <div class="form-group">
-        <label for="title">Title</label>
+        <label>Title</label>
         <input ng-model = "ListingForm.title" novalidate type="text" ng-model="" class="form-control" id="title" placeholder="Enter title">
     </div>
     <div class="form-group">
-        <label for="categories">Category</label>
+        <label>Category</label>
         <select ng-model="ListingForm.category" name="categories">
             <option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
         </select>
     </div>
     <div class="form-group">
-        <label for="img">
+        <label>
             <input type="file">
         </label>
     </div>
     <div class="form-group">
-        <label for="">Description</label>
+        <label>Description</label>
         <input ng-model="ListingForm.description" novalidate type="text" ng-model="" class="form-control" id="" placeholder="Enter description">
     </div>
     <!-- Photo input here -->
     <div class="form-group">
-        <label for="">Price</label>
+        <label>Price</label>
         <input ng-model="ListingForm.price" novalidate type="number" ng-model="" class="form-control" id="" placeholder="Enter price">
     </div>
     <div class="form-group">
-        <label for="">Quantity</label>
+        <label>Quantity</label>
         <input ng-model="ListingForm.qty" type="number" ng-model="" class="form-control" id="" placeholder="Enter quantity">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>

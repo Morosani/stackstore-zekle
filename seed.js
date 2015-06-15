@@ -34,13 +34,12 @@ var getCurrentUserData = function() {
 var seedUsers = function() {
 
     var users = [{
-        name: {
-            first: "Jean",
-            last: "Holmes"
-        },
+        firstName: "Jean",
+        lastName: "Holmes",
+        
         phoneNumber: "3-(672)210-7055",
         admin:true,
-       
+        
         photo: "https://soundcloud.com",
         location: {
             lat: 40.707,
@@ -49,13 +48,11 @@ var seedUsers = function() {
         email: "jholmes0@wikipedia.org",
         password: "password"
     }, {
-        name: {
-            first: "Phillip",
-            last: "Turner"
-        },
+        firstName: "Phillip",
+        lastName: "Turner",
         phoneNumber: "0-(844)144-8187",
         admin:true,
-       
+        
         photo: "http://cornell.edu",
         location: {
             lat: 40.708,
@@ -63,14 +60,13 @@ var seedUsers = function() {
         },
         email: "pturner1@spiegel.de",
         password: "password"
-    }, {
-        name: {
-            first: "Nicole",
-            last: "Palmer"
-        },
+    },{
+        firstName: "Nicole",
+        lastName: "Palmer",
+        
         phoneNumber: "0-(984)656-2198",
         admin:true,
-       
+        
         photo: "http://nytimes.com",
         location: {
             lat: 40.701,
@@ -85,25 +81,25 @@ var seedUsers = function() {
 
 var seedCategories = function() {
     var categories = [{
-        name: "posuere"
+        name: "Home Goods"
     }, {
-        name: "diam id"
+        name: "Food"
     }, {
-        name: "neque"
+        name: "Clothing"
     }, {
-        name: "vel"
+        name: "Electronics"
     }, {
-        name: "eu"
+        name: "Health"
     }, {
-        name: "in porttitor"
+        name: "Books"
     }, {
-        name: "sapien non"
+        name: "Music"
     }];
     return q.invoke(Category, 'create', categories);
 };
 var seedReviews = function() {
     var reviews = [{
-        user: new User({name:{first:"user",last:"one"}}),
+        user: new User({firstName:"user",lastName:"one"}),
         rating: 3,
         comment: "Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla."
 
@@ -125,8 +121,8 @@ var seedReviews = function() {
     // }, {
     //     rating: 3,
     //     comments: "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.",
-    }]
-    return q.invoke(Review, 'create', reviews);
+}]
+return q.invoke(Review, 'create', reviews);
 
 };
 var seedListings = function() {
@@ -137,7 +133,7 @@ var seedListings = function() {
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
         category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        seller: new User({firstName:"user",lastName:"one"})
     },
     {
         title: "Banana",
@@ -146,7 +142,7 @@ var seedListings = function() {
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
         category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        seller: new User({firstName:"user",lastName:"one"})
     },
     {
         title: "Banana",
@@ -155,80 +151,80 @@ var seedListings = function() {
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
         category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        seller: new User({firstName:"user",lastName:"one"})
     },{
         title: "Banana",
         quantity: 49,
         price: "321.05",
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
-            category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        category:new Category({name:'category 1'}),
+        seller: new User({firstName:"user",lastName:"one"})
     },{
         title: "Banana",
         quantity: 49,
         price: "321.05",
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
-            category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        category:new Category({name:'category 1'}),
+        seller: new User({firstName:"user",lastName:"one"})
     },{
         title: "Banana",
         quantity: 49,
         price: "321.05",
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
-            category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        category:new Category({name:'category 1'}),
+        seller: new User({firstName:"user",lastName:"one"})
     },{
         title: "Banana",
         quantity: 49,
         price: "321.05",
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
-            category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        category:new Category({name:'category 1'}),
+        seller: new User({firstName:"user",lastName:"one"})
     },{
         title: "Banana",
         quantity: 49,
         price: "321.05",
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
-            category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        category:new Category({name:'category 1'}),
+        seller: new User({firstName:"user",lastName:"one"})
     },{
         title: "Banana",
         quantity: 49,
         price: "321.05",
         description:"For decades I have been trying to come up with an ideal way to slice a banana. \"Use a knife!\" they say. Well...my parole officer won't allow me to be around knives. \"Shoot it with a gun!\" Background check...HELLO! I had to resort to carefully attempt to slice those bananas with my bare hands. 99.9% of the time, I would get so frustrated that I just ended up squishing the fruit in my hands and throwing it against the wall in anger. Then, after a fit of banana-induced rage, my parole officer introduced me to this kitchen marvel and my life was changed. No longer consumed by seething anger and animosity towards thick-skinned yellow fruit, I was able to concentrate on my love of theatre and am writing a musical play about two lovers from rival gangs that just try to make it in the world. I think I'll call it South Side Story. Banana slicer...thanks to you, I see greatness on the horizon.",
         photoUrl:"https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3.jpg",
-            category:new Category({name:'category 1'}),
-        seller: new User({name:{first:"user",last:"one"}})
+        category:new Category({name:'category 1'}),
+        seller: new User({firstName:"user",lastName:"one"})
     }];
     return q.invoke(Listing, 'create', listings);
 };
 
 connectToDb.then(function() {
-            getCurrentUserData().then(function(users) {
-                if (users.length === 0) {
-                    return seedUsers();
-                } else {
-                    console.log(chalk.magenta('Seems to already be user data, exiting!'));
-                    process.kill(0);
-                }
-            }).then(function() {
-                console.log(chalk.green("seeding"));
-            }).then(function() {
-                return seedCategories();
-            }).then(function() {
-                return seedListings();
-            }).then(function() {
-                return seedReviews();
-            }).then(function() {
-                console.log(chalk.green('Seed successful!'));
-                process.kill(0);
-            }).catch(function(err) {
-                console.error(err);
-                process.kill(1);
-            });
-        })
+    getCurrentUserData().then(function(users) {
+        if (users.length === 0) {
+            return seedUsers();
+        } else {
+            console.log(chalk.magenta('Seems to already be user data, exiting!'));
+            process.kill(0);
+        }
+    }).then(function() {
+        console.log(chalk.green("seeding"));
+    }).then(function() {
+        return seedCategories();
+    }).then(function() {
+        return seedListings();
+    }).then(function() {
+        return seedReviews();
+    }).then(function() {
+        console.log(chalk.green('Seed successful!'));
+        process.kill(0);
+    }).catch(function(err) {
+        console.error(err);
+        process.kill(1);
+    });
+})

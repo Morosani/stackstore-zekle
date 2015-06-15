@@ -2,13 +2,23 @@ app.factory('Listings',function($http){
 	return {
 		getAll:function(){
 			return $http.get('/api/listings').then(function(response){
-				return response.data; 
+				return response.data;
 			})
 		},
-		create:function(formData){
-			console.log("listings factory form data: ",formData); 
-			return $http.post('/api/listings/create',{category:formData.category,title:formData.title,description:formData.description,price:formData.price,qty:formData.qty}).then(function(response){
+		createListing:function(formData){
+			// console.log("listings factory form data: ",formData);
+			return $http.post('/api/listings/create',{category:formData.category,title:formData.title,description:formData.description,price:formData.price,quantity:formData.quantity}).then(function(response){
 			});
+		},
+		getOne:function(id){
+			return $http.get('/api/listings/' + id).then(function(response) {
+				// console.log('data from Listings factory getOne function: ', response.data);
+
+				return response.data;
+			})
+		},
+		getObjectId:function(listing){
+			return listing._id;
 		}
 	}
 })
