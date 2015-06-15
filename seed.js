@@ -45,7 +45,7 @@ var seedUsers = function() {
             lat: 40.707,
             lng: -74
         },
-        email: "jholmes0@wikipedia.org",
+        email: "test@test.com",
         password: "password"
     }, {
         firstName: "Phillip",

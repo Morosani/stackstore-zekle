@@ -1,4 +1,4 @@
-    <form id="registration-form" name="registrationForm" ng-class="form-group" ng-submit="SignupForm.$valid && createUser()" novalidate>
+    <form id="registration-form" name="registrationForm" ng-class="form-group" ng-submit="createUser()" novalidate>
 
         <!-- FIRST NAME -->
         <div class="form-group" ng-class="{ 'has-error' : SignupForm.firstName.$invalid && !SignupForm.firstName.$pristine }">
@@ -43,6 +43,7 @@
     {{SignupForm | json}}
     {{SignupForm.valid}}
     <button  class= "btn btn-danger" ng-click="googleAuth()">Login with Google</button>
+    {{createUser}}
 
 
     <!-- {{ SignupForm | json }} -->
