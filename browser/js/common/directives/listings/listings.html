@@ -5,17 +5,18 @@
 		<h1 ng-show="searchRes && !listings.length">Sorry, there are no results. </h1>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-12">
-	<div ng-repeat="listing in listings" class="col-lg-3 col-md-4 col-sm-6 listingContainer">
-			<div class="col-md-12 listing">
-				<h2 class="title">{{listing.title}}</h2>
-				<img class="img" src="{{listing.photoUrl}}" alt="">
-				<p class="description">{{listing.description | limitTo:letterLimit }}</p>
-				<h3 class="price">{{listing.price|currency}}</h3>
+
+<div id="listingsWrapper" class="col-md-12">
+	<div ng-repeat="listing in listings" class="col-lg-3 col-md-3 col-sm-4 listingContainer">
+		<div class="col-md-12 listing">
+			<h2 class="title">{{listing.title}}</h2>
+			<img class="img" src="{{listing.photoUrl}}" alt="">
+			<p class="description">{{listing.description | limitTo:letterLimit }}</p>
+			<h3 class="price">{{listing.price|currency}}</h3>
+			<div class="bottomAlign">
 				<button ng-click="getDetails(listing)" class="btn btn-primary">Product Details</button>
-				<!-- <a ui-sref="listingDetails">Details state?</a> -->
-				<button ng-click="addListingToCart(listing)" class="btn btn-primary">Add To Cart</button>
+				<input type="number" ng-init="listing.quantity=1" ng-model = "listing.quantity">
+				<button ng-click="addListingToCart(listing)" class="btn btn-primary addToCartButton"><i class="fa fa-cart-plus fa-2x"></i></button>
 			</div>
 		</div>
 	</div>
