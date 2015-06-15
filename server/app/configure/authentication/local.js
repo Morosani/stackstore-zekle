@@ -23,6 +23,7 @@ module.exports = function (app) {
 
     // A POST /login route is created to handle login.
     app.post('/login', function (req, res, next) {
+        console.log('hitting login route'); 
 
         var authCb = function (err, user) {
 
@@ -46,5 +47,19 @@ module.exports = function (app) {
         passport.authenticate('local', authCb)(req, res, next);
 
     });
+
+    app.post('/signup',function(req,res,next){
+        console.log("hitting signup route");
+        UserModel.findOne({email:req.body.email}).exec().then(function(searchRes){
+            console.log("find by email ", searchRes);
+            if(!searchRes){
+                console.log("user not found, creating user");
+                UserModel.create(req.body).then(function(createRes){
+                    console.log("create results ",createRes);
+                    res.status(200).send({ createRes: _.omit(createRes.toJSON(), ['password', 'salt']) });
+                })
+            }
+        },next)
+    })
 
 };

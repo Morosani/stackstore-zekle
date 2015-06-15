@@ -1,6 +1,7 @@
 'use strict';
 var crypto = require('crypto');
 var mongoose = require('mongoose');
+var findOrCreate = require('mongoose-findorcreate'); 
 
 var schema = new mongoose.Schema({
     firstName:{
@@ -28,12 +29,10 @@ var schema = new mongoose.Schema({
 
     location: {
         lat: {
-            type: Number,
-            required: true
+            type: Number
         },
         lng: {
-            type: Number,
-            required: true
+            type: Number
         }
     },
 
@@ -90,5 +89,7 @@ schema.statics.encryptPassword = encryptPassword;
 schema.method('correctPassword', function (candidatePassword) {
     return encryptPassword(candidatePassword, this.salt) === this.password;
 });
+
+// schema.plugin(findOrCreate);
 
 mongoose.model('User', schema);
