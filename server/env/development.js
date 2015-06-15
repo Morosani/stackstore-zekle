@@ -20,7 +20,6 @@ module.exports = {
     "clientID":"885339505275-d4l6dcgdi6a1lukmabbiv59on0an41gh.apps.googleusercontent.com",
     "clientSecret":"aK_A8SLo-mQ9E-gD5k3WsR_z",
     "callbackURL":"/auth/google/callback"
-
   },
   "STRIPE": {
     "clientID": "Zekle",
