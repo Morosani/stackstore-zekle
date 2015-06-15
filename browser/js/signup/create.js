@@ -12,7 +12,6 @@ app.config(function ($stateProvider) {
 app.controller('signupController', function ($scope,$window,AuthService, Signup) {
 
     $scope.createUser = function() {
-    	console.log("called create user");
         Signup.createUser($scope.SignupForm).then(function(response){
         	console.log("User creation response ",response);
             delete $scope.SignupForm;
