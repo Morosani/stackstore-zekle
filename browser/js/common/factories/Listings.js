@@ -19,8 +19,6 @@ app.factory('Listings',function($http){
 		},
 		getOne:function(id){
 			return $http.get('/api/listings/' + id).then(function(response) {
-				// console.log('data from Listings factory getOne function: ', response.data);
-
 				return response.data;
 			})
 		},
