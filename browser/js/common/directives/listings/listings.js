@@ -10,7 +10,6 @@ app.directive('listings', function() {
 app.controller('ListingsCtrl', function($scope, $state, Listings,SearchResults,Cart) {
 	//if searchResults exist, $scope.listings = searchresults else get all listings
 	$scope.letterLimit = 100;
-
 	Listings.getAll().then(function(data) {
 		$scope.listings = data;
 		console.log("$scope listings from getAll: ", $scope.listings);
