@@ -14,7 +14,7 @@
 <!-- {{cartItems}} -->
 <div ng-repeat="item in cartItems" class="row cartItem">
 	<div class="col-md-2 imgContainer">
-		<img src="{{item.photoUrl}}" alt="">
+		<img ng-src="{{item.photoUrl}}" alt="">
 	</div>
 	<div class="col-md-2"><h2>{{item.title}}</h2></div>
 	<!-- <div class="col-md-3"><p>{{item.description}}</p></div> -->
