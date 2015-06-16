@@ -1,15 +1,15 @@
 
-<form id="create-listing-form" name="listingForm" ng-class="form-group" ng-controller="CreateListingCtrl" ng-submit="listingForm.$valid && createListing()" novalidate>
+<form id="create-listing-form" name="listingForm" ng-class="form-group" ng-submit="listingForm.$valid && createListing()" novalidate>
 
     <div class="form-group" ng-class="{ 'has-error' : listingForm.title.$invalid && listingForm.$submitted }">
         <label>Title</label>
-        <input type="text" ng-model="listingForm.title" class="form-control" placeholder="Enter title" required>
+        <input type="text" ng-model="nListing.title" name="title" class="form-control" placeholder="Enter title" required>
         <p ng-show="listingForm.title.$invalid && listingForm.$submitted" class="help-block">listing title is required.</p>
     </div>
 
     <div class="form-group" ng-class="{ 'has-error' : listingForm.category.$invalid && listingForm.$submitted }">
         <label>Category</label>
-        <select ng-model="listingForm.category">
+        <select ng-model="nListing.category">
             <option ng-repeat="category in categories" name="category" value="{{category._id}}">{{category.name}}</option>
         </select>
     </div>
@@ -22,18 +22,18 @@
 
     <div class="form-group" ng-class="{ 'has-error' : listingForm.description.$invalid && listingForm.$submitted }">
         <label>Description</label>
-        <input type="text" ng-model="listingForm.description"  class="form-control" placeholder="Enter description" required>
+        <input type="text" ng-model="nListing.description" name="description"  class="form-control" placeholder="Enter description" required>
         <p ng-show="listingForm.description.$invalid && listingForm.$submitted" class="help-block">description is required.</p>
     </div>
 
     <div class="form-group" ng-class="{ 'has-error' : listingForm.price.$invalid && listingForm.$submitted }">
         <label>Price</label>
-        <input type="number" ng-model="listingForm.price"  class="form-control" id="price" placeholder="Enter price" required>
+        <input type="number" ng-model="nListing.price"  name="price" class="form-control" id="price" placeholder="Enter price" required>
         <p ng-show="listingForm.price.$invalid && listingForm.$submitted" class="help-block">listing price is required.</p>
     </div>
     <div class="form-group" ng-class="{ 'has-error' : listingForm.quantity.$invalid && listingForm.$submitted }">
         <label>Quantity</label>
-        <input ng-model="listingForm.quantity" type="number" class="form-control" id="quantity" placeholder="Enter quantity" required>
+        <input ng-model="nListing.quantity" type="number" name="quantity" class="form-control" id="quantity" placeholder="Enter quantity" required>
         <p ng-show="listingForm.quantity.$invalid && listingForm.$submitted" class="help-block">quantity is required.</p>
     </div>
     <input value="Create Listing" type="submit" class="btn btn-default">
