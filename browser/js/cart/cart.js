@@ -16,5 +16,11 @@ app.controller('CartCtrl',  function($scope,Cart){
 		$scope.updating = true; 
 		console.log('called update ',id,' quantity ',qty); 
 		$scope.cartItems = Cart.updateQty(id,qty);
+		$scope.updateTotal(); 
 	}
+	$scope.total = Cart.getTotal();
+	$scope.updateTotal = function(){
+		$scope.total = Cart.getTotal();
+	}
+	$scope.updateTotal(); 
 });
