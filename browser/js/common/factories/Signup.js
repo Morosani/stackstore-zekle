@@ -14,4 +14,3 @@ app.factory('Signup',function($http){
         }
     }
 })
-
