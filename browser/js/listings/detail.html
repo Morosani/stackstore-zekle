@@ -10,6 +10,7 @@
     </div>
   </div>
   <p class="description">{{listing.description | limitTo:letterLimit }}</p>
+  <p class="reviews">{{listing.customerReviews}}</p>
 </div>
 <div ng-show="isLoggedIn"><a ui-sref="listingState.details.review">Leave a review</a></div>
 <div ui-view></div>

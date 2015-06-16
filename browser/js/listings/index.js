@@ -52,12 +52,20 @@ app.controller('ReviewListingCtrl', function($scope, $stateParams, Listings, Cat
     AuthService.getLoggedInUser().then(function(user) {
         $scope.reviewForm.user = user._id;
         console.log('this mah user yo: ', $scope.reviewForm.user);
+
     });
+    // $scope.reviewForm.listingId = $stateParams.id;
     $scope.createReview = function(){
+        $scope.reviewForm.listingId = $stateParams.id;
         // console.log('HELLOOWOEWFJEFWEWOJ?!?!?!?!?!')
         Review.createReview($scope.reviewForm)
         .then(function(review) {
             console.log("Created review: ", review);
+            console.log('stateparams id?', $stateParams.id)
+            // Listings.find({_id: $stateParams.id}).then(function(listing) {
+            //     listing.customerReviews.push(review._id);
+            //     console.log('listing with new REVIEW Y\'ALL: ', listing);
+            // })
         })
     }
 })
