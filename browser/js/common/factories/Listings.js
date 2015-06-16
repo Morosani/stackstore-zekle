@@ -30,7 +30,7 @@ app.factory('Listings',function($http){
 				console.log('listing deleted')
 			})
 		},
-		updateListing:function(id) {
+		updateListing:function(id, formData) {
 			return $http.post('api/listings' + id).then(function(response){
 				return response.data
 			})

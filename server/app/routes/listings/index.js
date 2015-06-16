@@ -33,6 +33,12 @@ router.get('/:listingId', function(req, res, next) {
   }).then(null, next);
 });
 
+router.post('/listingId', function(req, res, next) {
+  Listing.findByIdAndUpdate(req.params.listingId, req.body).exec().then(function(listing){
+    res.sendStatus(201);
+  }).then(null,next);
+})
+
 router.post('/create', function(req, res, next) {
   console.log('hitting the create route');
   console.log(req.body);

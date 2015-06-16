@@ -43,10 +43,23 @@ app.controller('AdminCreateCategoryCtrl', function($scope, Categories) {
 
 app.controller('AdminListingsCtrl', function($scope, Listings) {
 	$scope.listings;
+	$scope.updateForm;
 	Listings.getAll().then(function(response) {
 		$scope.listings=response;
 	})
 	$scope.deleteListing = function(id){
 		Listings.deleteListing(id);
+	}
+	$scope.updateListing = function(id) {
+		Listings.updateListing(id, $scope.updateForm).then(function);
+	}
+});
+
+app.controller('CreateCategoryCtrl', function($scope, Categories) {
+	$scope.CategoryForm;
+	$scope.newCategory = function() {
+		Categories.createCategory($scope.CategoryForm).then(function(response) {
+			console.log(response);
+		});
 	}
 });
