@@ -61,9 +61,11 @@ app.factory('Checkout',function($http){
 		"Wyoming"
 	]; 
 	return {
-		getStates = function(){
+		getStates :function(){
 			return states; 
 		}
-
+		createOrder:function(){
+			$http.post('/api/')
+		}
 	}
 })
