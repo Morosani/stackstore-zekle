@@ -4,6 +4,9 @@ app.factory('Cart',['locker' ,function(locker){
 		getCart:function(){
 			return locker.get('cart'); 
 		},
+		getTotal:function(){
+			return locker.get('total'); 
+		},
 		addToCart:function(listing){
 			locker.put('cart',function(current){
 				current.push(listing);
@@ -29,6 +32,9 @@ app.factory('Cart',['locker' ,function(locker){
 			});
 			locker.put('cart',cart); 
 			return cart;
+		},
+		emptyCart:function(){
+			locker.put('cart',[]);
 		}
 	};
 }]);

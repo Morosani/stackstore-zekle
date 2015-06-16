@@ -17,8 +17,14 @@ router.get('/:orderId', function(req, res, next) {
   }).then(null, next);
 });
 
-router.post('/create', function(req, res, next) {
-  order.create(req.body).then(function(order) {
-    res.sendStatus(201);
-  }).then(null, next);
+router.post('/', function(req, res, next) {
+	var total =0.0; 
+	req.body.listings.forEach(function(entry){
+		total+= entry.price
+
+	});
+	order.create({status:'created',totalPrice:total,items:req.body.listings,shipping:req.body.ship}).then(function(createdOrder){
+		res.send(createdOrder); 
+	},next)
+
 });

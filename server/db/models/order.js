@@ -2,7 +2,20 @@
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    shipping:{
+        name:String,
+        email:String,
+        phone:String,
+        address1:String,
+        address2:String,
+        city:String,
+        state:String,
+        Zip:String
+    },
     status: {
     	type: String, 
     	enum: ['created', 'processing', 'cancelled', 'completed'],
@@ -12,10 +25,7 @@ var schema = new mongoose.Schema({
     	type: Number,
     	required: true
     },
-	cart: {
-		type:mongoose.Schema.Types.ObjectId,
-		ref: 'Cart'
-	}
+    items:[]
 });
 
 mongoose.model('Order', schema);
