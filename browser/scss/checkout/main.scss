@@ -13,3 +13,38 @@
 	}
 	margin-bottom:5%; 
 }
+.confirmation{
+	margin-bottom:5%; 
+
+	.orderDetails{
+		padding:2%;
+		margin-top:5%; 
+		margin-bottom:5%;
+		border:1px solid darken(white,70%); 
+		border-radius:5px; 	
+		img{
+			width:100%;
+		}
+	}
+	.created{
+		i{
+			color:$created;
+		}
+	}
+	.processing{
+		i{
+			color:$processing;
+		}
+	}
+	.cancelled{
+		i{
+			color:$cancelled;
+		}
+	}
+	.completed{
+		i{
+			color:$completed;
+		}
+	}
+
+}
