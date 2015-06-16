@@ -1,22 +1,21 @@
 'use strict';
 
-var stripe = require('stripe')('sk_test_qhzQZUmT0xx9LVwnCTpWidnc');
+// Set your secret key: remember to change this to your live secret key in production
+// See your keys here https://dashboard.stripe.com/account/apikeys
+var stripe = require("stripe")("sk_test_qhzQZUmT0xx9LVwnCTpWidnc");
 
-module.exports = function(app) {
+// (Assuming you're using express - expressjs.com)
+// Get the credit card details submitted by the form
+var stripeToken = request.body.stripeToken;
 
-	var stripeToken = request.body.stripeToken;
+var charge = stripe.charges.create({
+  amount: 1000, // amount in cents, again
+  currency: "usd",
+  source: stripeToken,
+  description: "Example charge"
+}, function(err, charge) {
+  if (err && err.type === 'StripeCardError') {
+    // The card has been declined
+  }
+})
 
-	var charge = stripe.charges.create({
-	  amount: 1000, // how to populate??
-	  currency: "usd", // how to populate?
-	  source: stripeToken,
-	  description: "Example charge" // how to populate?
-	}, function(err, charge) {
-	  if (err && err.type === 'StripeCardError') {
-	    // The card has been declined
-	  }
-
-	  //BUILD TRANSFER TO 'THANK YOU' PAGE
-	});
-
-};

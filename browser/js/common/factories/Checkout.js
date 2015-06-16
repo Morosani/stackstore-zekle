@@ -74,6 +74,18 @@ app.factory('Checkout',function($http){
 		},
 		getOrder:function(){
 			return myOrder; 
+		},
+		payOrder:function(payment){
+			return $http.post('/api/payments/pay').then(function (paid) {
+				console.log("successfully submitted payment for $", paid.amount);
+			}).catch(function (err) {
+		        if (err.type && /^Stripe/.test(err.type)) {
+		          console.log('Stripe error: ', err.message);
+		        }
+		        else {
+		          console.log('Other error occurred, possibly with your API', err.message);
+		        }
+      		});
 		}
 	};
 })
