@@ -4,7 +4,7 @@ module.exports = router;
 var _ = require('lodash');
 var mongoose = require('mongoose');
 var reviews = mongoose.model('Review');
-var ReviewHistory = mongoose.model('ReviewHistory');
+// var ReviewHistory = mongoose.model('ReviewHistory');
 var Listing = mongoose.model('Listing');
 
 router.get('/',function(req,res,next){
