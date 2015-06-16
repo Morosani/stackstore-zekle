@@ -10,6 +10,8 @@
     </div>
   </div>
   <p class="description">{{listing.description | limitTo:letterLimit }}</p>
+  <p ng-repeat="review in listing.customerReviews" class="reviews">{{review.user.firstName}} {{review.user.lastName}} {{review.comment}} {{review.rating}}</p>
 </div>
-<div ng-show="isLoggedIn"><a>Leave a review</a></div>
+<div ng-show="isLoggedIn"><a ui-sref="listingState.details.review">Leave a review</a></div>
+<div ui-view></div>
 <!-- could use a nested view to show review form or a new state -->

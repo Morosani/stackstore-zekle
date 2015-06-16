@@ -24,6 +24,16 @@ app.factory('Listings',function($http){
 		},
 		getObjectId:function(listing){
 			return listing._id;
+		},
+		deleteListing:function(id){
+			return $http.delete('/api/listings/' + id).then(function(response){
+				console.log('listing deleted')
+			})
+		},
+		updateListing:function(id) {
+			return $http.post('api/listings' + id).then(function(response){
+				return response.data
+			})
 		}
 	}
 })

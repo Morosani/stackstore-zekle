@@ -15,17 +15,15 @@ app.controller('ListingsCtrl', function($scope, $state, Listings,SearchResults,C
 		console.log("$scope listings from getAll: ", $scope.listings);
 	});
 
-	$scope.getDetails = function(listing){
+/*	$scope.getDetails = function(listing){
 		var id = Listings.getObjectId(listing);
 		$scope.detailsId = id;
 		Listings.getOne(id).then(function(data) {
 			$scope.listing = Listings.listing = data;
 		});
 
-
 		$state.go('listingState.details');
-		// $state.go('listingDetails', {listing: JSON.stringify(obj)});
-	}
+	}*/
 
 
 	$scope.$on("search",function(){

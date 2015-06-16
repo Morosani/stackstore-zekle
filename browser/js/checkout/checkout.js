@@ -3,15 +3,25 @@ app.config(function($stateProvider){
 		url:'/checkout',
 		templateUrl:'/js/checkout/checkout.html',
 		controller:'CheckoutCtrl'
+	}),
+	$stateProvider.state('confirmation',{
+		url:'/confirmation',
+		templateUrl:'/js/checkout/confirmation.html',
+		controller:'ConfirmationCtrl'
 	})
 })
 
-app.controller('CheckoutCtrl',function($scope,Cart,Checkout){
+app.controller('CheckoutCtrl',function($scope,$state,Cart,Checkout){
 	$scope.cartItems = Cart.getCart();
 	$scope.states= Checkout.getStates(); 
 	$scope.storeCart=function(){
-		Checkout.createOrder(cartItems).then(function(order){
-			console.log(order); 
+		console.log("hitting storeCart function");
+		Checkout.createOrder($scope.cartItems,$scope.orderForm).then(function(order){
+			Cart.emptyCart(); 
+			$state.go('confirmation'); 
 		}); 
 	}
+});
+app.controller('ConfirmationCtrl',function($scope,Checkout){
+	$scope.order = Checkout.getOrder();
 });
