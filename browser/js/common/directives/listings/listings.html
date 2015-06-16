@@ -8,7 +8,7 @@
 
 
 <div id="listingsWrapper" class="col-md-12">
-	<div ng-repeat="listing in listings" class="col-lg-3 col-md-3 col-sm-4 listingContainer">
+	<div ng-repeat="listing in listings" class="col-lg-3 col-md-3 col-sm-4 listingContainer" ng-controller="IndividualListingCtrl">
 		<div class="col-md-12 listing">
 			<h2 class="title">{{listing.title}}</h2>
 			<img class="img" ng-src="{{listing.photoUrl}}" alt="">
@@ -17,7 +17,8 @@
 			<div class="bottomAlign">
 			<button ui-sref="listingState.details({id:'{{listing._id}}'})" class="btn btn-primary">Product Details</button>
 				<input type="number" ng-init="listing.quantity=1" ng-model = "listing.quantity">
-				<button ng-click="addListingToCart(listing)" class="btn btn-primary addToCartButton"><i class="fa fa-cart-plus fa-2x"></i></button>
+				<button ng-click="addListingToCart(listing); showCheck()" class="btn btn-primary addToCartButton"><i class="fa fa-cart-plus fa-2x"></i></button>
+				<i ng-show="addingToCart" class="checkMark fa fa-check fa-2x"></i>
 			</div>
 		</div>
 	</div>
