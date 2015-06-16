@@ -6,7 +6,8 @@ app.config(function($stateProvider){
 	})
 })
 
-app.controller('CheckoutCtrl',function($scope,Cart){
+app.controller('CheckoutCtrl',function($scope,Cart,Checkout){
 	$scope.cartItems = Cart.getCart();
+	$scope.states= Checkout.getStates(); 
 
 });
