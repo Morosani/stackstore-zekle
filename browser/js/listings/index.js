@@ -47,16 +47,17 @@ app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Cat
 })
 
 app.controller('ReviewListingCtrl', function($scope, $stateParams, Listings, Categories, Review, AuthService){
-    // Listings.getOne($stateParams.id).then(function(response) {
-    //     $scope.listing = response;
-    // });
-    console.log($scope)
-    console.log("this is $scope.ReviewForm", $scope.ReviewForm);
+    // $scope.reviewForm;
     $scope.isLoggedIn = AuthService.isAuthenticated();
+    AuthService.getLoggedInUser().then(function(user) {
+        $scope.reviewForm.user = user._id;
+        console.log('this mah user yo: ', $scope.reviewForm.user);
+    });
     $scope.createReview = function(){
-        console.log('HELLOOWOEWFJEFWEWOJ?!?!?!?!?!')
-        // Review.createReview($scope.ReviewForm).then(function(review) {
-        //     console.log("Created review: ", review);
-        // })
+        // console.log('HELLOOWOEWFJEFWEWOJ?!?!?!?!?!')
+        Review.createReview($scope.reviewForm)
+        .then(function(review) {
+            console.log("Created review: ", review);
+        })
     }
 })
