@@ -43,12 +43,15 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
 
 })
 
-app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories, AuthService){
+app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings, Cart, Categories, AuthService){
     Listings.getOne($stateParams.id).then(function(response) {
         $scope.listing = response;
     });
     $scope.isLoggedIn = AuthService.isAuthenticated();
-
+    $scope.addListingToCart = function(listing){
+        console.log("controller addListingToCart found");
+        Cart.addToCart(listing);
+    }
     // $scope.changeState = $state.go('listingState.details.review');
 })
 
