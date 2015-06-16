@@ -6,7 +6,7 @@ app.config(function($stateProvider) {
     });
     $stateProvider.state('categoriesState.create', {
         url: '/create',
-        templateUrl: '/js/categories/createCategory.html',
+        templateUrl: '/js/categories/create.html',
         controller: 'CreateCategoryCtrl'
     });
 });

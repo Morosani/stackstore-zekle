@@ -7,7 +7,7 @@ app.config(function ($stateProvider) {
     });
     $stateProvider.state('listingState.create',{
     	url:'/create',
-    	templateUrl:'/js/listings/createCategory.html',
+    	templateUrl:'/js/listings/create.html',
     	controller:'CreateListingCtrl'
     })
     $stateProvider.state('listingState.details',{
