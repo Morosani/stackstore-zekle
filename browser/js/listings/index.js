@@ -24,9 +24,10 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
     });
     //$scope.ListingForm
     $scope.createListing = function(){
-        Listings.createListing($scope.listingForm).then(function(response) {
+        console.log($scope.nListing)
+        Listings.createListing($scope.nListing).then(function(response) {
         console.log("listing creation response", response);
-            delete $scope.listingForm
+            delete $scope.nListing
         })
     }
 
@@ -35,6 +36,5 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
 app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories, AuthService){
     $scope.listing = Listings.listing;
     $scope.isLoggedIn = AuthService.isAuthenticated();
-})
-
+});
 
