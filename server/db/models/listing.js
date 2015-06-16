@@ -21,7 +21,7 @@ var schema = new mongoose.Schema({
     seller: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        //required: true
     },
     description:{
         type:String,

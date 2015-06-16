@@ -1,0 +1,15 @@
+.shippingWrapper,.billingWrapper{
+	margin-top:5%; 
+	border:1px solid darken(white,70%); 
+	border-radius:5px; 
+	label{
+		display:block;
+		font-weight:bold; 
+		font-size:1.2em;
+	}
+	input{
+		width:100%;
+		font-size:1.3em;
+	}
+	margin-bottom:5%; 
+}

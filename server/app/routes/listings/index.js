@@ -36,7 +36,6 @@ router.get('/:listingId', function(req, res, next) {
 router.post('/create', function(req, res, next) {
   console.log('hitting the create route');
   console.log(req.body);
-
   Listing.create(req.body).then(function(listing) {
     res.sendStatus(201);
   }).then(null, next);

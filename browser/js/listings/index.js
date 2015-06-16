@@ -32,10 +32,15 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
     Categories.getAll().then(function(results){
         $scope.categories = results;
     });
-    $scope.ListingForm
-    $scope.createListing= function(){
-        Listings.create($scope.ListingForm)
+    //$scope.ListingForm
+    $scope.createListing = function(){
+        console.log($scope.nListing)
+        Listings.createListing($scope.nListing).then(function(response) {
+        console.log("listing creation response", response);
+            delete $scope.nListing
+        })
     }
+
 })
 
 app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories, AuthService){
@@ -43,6 +48,7 @@ app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Cat
         $scope.listing = response;
     });
     $scope.isLoggedIn = AuthService.isAuthenticated();
+
     // $scope.changeState = $state.go('listingState.details.review');
 })
 
@@ -69,3 +75,4 @@ app.controller('ReviewListingCtrl', function($scope, $stateParams, Listings, Cat
         })
     }
 })
+

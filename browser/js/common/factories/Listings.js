@@ -14,13 +14,11 @@ app.factory('Listings',function($http){
 				price:formData.price,
 				quantity:formData.quantity
 			}).then(function(response){
-				console.log(response); 
+				return response.data
 			})
 		},
 		getOne:function(id){
 			return $http.get('/api/listings/' + id).then(function(response) {
-				// console.log('data from Listings factory getOne function: ', response.data);
-
 				return response.data;
 			})
 		},
@@ -29,3 +27,4 @@ app.factory('Listings',function($http){
 		}
 	}
 })
+

@@ -1,0 +1,21 @@
+.cartItem{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	border-top:3px solid darken(white,20%);
+	
+	padding:2%;
+	.imgContainer{ 
+		img{
+			width:100%;
+		}
+	}
+	input{
+		width:90%;
+	}
+}
+
+.checkout{
+	padding:3%;
+}
