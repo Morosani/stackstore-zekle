@@ -7,7 +7,7 @@ var fs = require('fs');
 var mandrill = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill('BCRvi3cKhPXJKPXcLHOYHQ');
 var ejs = require('ejs'); 
-var order = mongoose.model('Order');
+var Order = mongoose.model('Order');
 
 function sendEmail(to_name, to_email, from_name, from_email, subject, message_html){
 	console.log("called sendEmail"); 
@@ -42,14 +42,14 @@ function sendEmail(to_name, to_email, from_name, from_email, subject, message_ht
     });
 }
 router.get('/', function(req, res, next) {
-	order.find({}).exec().then(function(orders) {
+	Order.find({}).exec().then(function(orders) {
 		res.send(orders);
 	}).then(null, next);
 });
 
 router.get('/:orderId', function(req, res, next) {
-	order.find({ id: req.params.orderId}).exec().then(function(order) {
-		res.send(order);
+	Order.findOne({_id: req.params.orderId}).exec().then(function(foundOrder) {
+		res.send(foundOrder);
 	}).then(null, next);
 });
 
@@ -60,7 +60,7 @@ router.post('/', function(req, res, next) {
 		total+= (entry.price*entry.quantity);
 
 	});
-	order.create({status:'created',totalPrice:total,items:req.body.listings,shipping:req.body.ship}).then(function(createdOrder){
+	Order.create({status:'created',totalPrice:total,items:req.body.listings,shipping:req.body.ship}).then(function(createdOrder){
 		console.log("order created"); 
 		var emailTemplate= fs.readFileSync(__dirname+'/email.html','utf8'); 
 		console.log("email template read"); 
