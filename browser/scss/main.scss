@@ -3,6 +3,10 @@
 }
 $blue:#0065D4;
 $teal:#00EBFF;
+$created:#FFCC00;
+$processing:#00CCFF;
+$cancelled:#FF5050;
+$completed:#00FF99;
 
 @mixin clearfix {
   &:after {
