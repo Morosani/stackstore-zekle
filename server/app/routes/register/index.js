@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 
-router.post('/create', function(req, res, next) {
+router.post('/', function(req, res, next) {
     console.log('hitting the create route');
     console.log(req.body);
     User.create(req.body).then(function(user) {
