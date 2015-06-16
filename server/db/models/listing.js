@@ -1,6 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
-
+var deepPopulate = require('mongoose-deep-populate');
 var schema = new mongoose.Schema({
     title: {
         type: String,
@@ -19,7 +19,7 @@ var schema = new mongoose.Schema({
         required: true
     },
     seller: {
-        type: mongoose.Schema.Types.ObjectId, 
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
@@ -35,5 +35,14 @@ var schema = new mongoose.Schema({
             ref: 'Review'
         }]
 });
+
+schema.plugin(deepPopulate, {
+    populate: {
+        'customerReviews.user': {
+          select: 'firstName lastName'
+        }
+    }
+});
+
 mongoose.model('Listing', schema);
 // need method for calculating number of reviews

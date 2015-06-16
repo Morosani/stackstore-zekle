@@ -4,6 +4,8 @@ module.exports = router;
 var _ = require('lodash');
 var mongoose = require('mongoose');
 var Listing = mongoose.model('Listing');
+var Review = mongoose.model('Review');
+var deepPopulate = require('mongoose-deep-populate');
 
 router.get('/', function(req, res, next) {
   Listing.find({}).exec().then(function(items) {
@@ -26,7 +28,7 @@ router.delete('/:listingId', function(req, res, next) {
 });
 
 router.get('/:listingId', function(req, res, next) {
-  Listing.findOne({ _id: req.params.listingId }).exec().then(function(listing) {
+  Listing.findOne({ _id: req.params.listingId }).populate('customerReviews').deepPopulate('customerReviews.user').exec().then(function(listing) {
     res.send(listing);
   }).then(null, next);
 });
