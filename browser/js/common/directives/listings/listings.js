@@ -34,9 +34,20 @@ app.controller('ListingsCtrl', function($scope, $state, Listings,SearchResults,C
 	$scope.addListingToCart = function(listing){
 		console.log("controller addListingToCart found");
 		Cart.addToCart(listing);
+		
 	}
 
+
 });
+app.controller('IndividualListingCtrl',function($scope){
+	$scope.showCheck=function(){
+		$scope.addingToCart=true;
+		setTimeout(function(){
+			$scope.addingToCart=false;
+			$scope.$digest();
+		},1000);
+	}
+})
 
 // state
 // url 'listingState.details/:listing'
