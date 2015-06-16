@@ -11,7 +11,7 @@ app.config(function($stateProvider){
 	})
 })
 
-app.controller('CheckoutCtrl',function($scope,$state,Cart,Checkout){
+app.controller('CheckoutCtrl',function($scope,$state,Cart,Checkout,stripe){
 	$scope.cartItems = Cart.getCart();
 	$scope.states= Checkout.getStates(); 
 	$scope.storeCart=function(){
@@ -21,6 +21,19 @@ app.controller('CheckoutCtrl',function($scope,$state,Cart,Checkout){
 			$state.go('confirmation'); 
 		}); 
 	}
+
+	$scope.charge = function () {
+    return stripe.card.createToken($scope.payment.card)
+      .then(function (token) {
+        console.log('token created for card ending in ', token.card.last4);
+        var payment = angular.copy($scope.payment);
+        payment.card = void 0;
+        payment.token = token.id;
+        return $http.post('https://yourserver.com/payments', payment);
+      })
+      
+  	};
+
 });
 app.controller('ConfirmationCtrl',function($scope,Checkout){
 	$scope.order = Checkout.getOrder();
