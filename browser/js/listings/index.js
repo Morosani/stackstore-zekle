@@ -43,12 +43,23 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
 
 })
 
-app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories, AuthService){
+app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings, Cart, Categories, AuthService){
     Listings.getOne($stateParams.id).then(function(response) {
+        if (!response.quantity) {
+          response.quantity = "Currently Unavailable";
+          $scope.available = false;
+        } else {
+            $scope.available = true;
+        }
+
         $scope.listing = response;
+        console.log($scope.listing);
     });
     $scope.isLoggedIn = AuthService.isAuthenticated();
-
+    $scope.addListingToCart = function(listing){
+        console.log("controller addListingToCart found");
+        Cart.addToCart(listing);
+    }
     // $scope.changeState = $state.go('listingState.details.review');
 })
 
@@ -57,8 +68,6 @@ app.controller('ReviewListingCtrl', function($scope, $stateParams, Listings, Cat
     $scope.isLoggedIn = AuthService.isAuthenticated();
     AuthService.getLoggedInUser().then(function(user) {
         $scope.reviewForm.user = user._id;
-        console.log('this mah user yo: ', $scope.reviewForm.user);
-
     });
     // $scope.reviewForm.listingId = $stateParams.id;
     $scope.createReview = function(){
