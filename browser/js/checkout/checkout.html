@@ -1,0 +1,24 @@
+<div class="row text-center"><h1>Checkout</h1></div>
+
+<div ng-repeat="item in cartItems" class="row cartItem">
+	<div class="col-md-2 imgContainer">
+		<img src="{{item.photoUrl}}" alt="">
+	</div>
+	<div class="col-md-2"><h2>{{item.title}}</h2></div>
+	<!-- <div class="col-md-3"><p>{{item.description}}</p></div> -->
+	
+	<div class="col-md-1"><p><b>Price:  </b>{{item.price|currency}}</p></div>
+	<div class="col-md-1"><p><b>Qty: </b>{{item.quantity}}</p></div>
+	<div class="col-md-2">
+		<p><b>Total: </b>{{(item.quantity * item.price)|currency}}</p>
+	</div>
+	<div ng-click = "removeItem(item._id)"class="col-md-1"><i class="fa fa-trash-o fa-2x" ></i></div>
+</div>
+
+
+<div class="row shipping">
+	<h3 class="text-center">Shipping info</h3>
+</div>
+<div class="row billing">
+	<h3 class="text-center">Billing info</h3>
+</div>
