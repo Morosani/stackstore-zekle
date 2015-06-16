@@ -14,7 +14,7 @@ app.factory('Listings',function($http){
 				price:formData.price,
 				quantity:formData.quantity
 			}).then(function(response){
-				console.log(response); 
+				return response.data
 			})
 		},
 		getOne:function(id){
