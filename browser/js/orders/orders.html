@@ -9,6 +9,7 @@
 			<h3 class="text-center">Order # {{order._id}}</h3>
 			<div class="orderStats">
 				<h4 class="{{order.status}}"><b>Order Status: </b>{{order.status}} <i class="fa fa-circle fa"></i></h4>
+				<h4><b>Order Created:</b> {{dateOrderCreated}}</h4>
 			</div>
 			<hr>
 			<div class="row confirmationItem" ng-repeat="item in order.items">

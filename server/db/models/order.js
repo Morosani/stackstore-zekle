@@ -1,5 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
+var timestamps = require('mongoose-timestamp');
 
 var schema = new mongoose.Schema({
     user: {
@@ -27,5 +28,5 @@ var schema = new mongoose.Schema({
     },
     items:[]
 });
-
+schema.plugin(timestamps);
 mongoose.model('Order', schema);
