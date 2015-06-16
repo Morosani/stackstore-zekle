@@ -1,21 +1,42 @@
 app.factory('Cart',['locker' ,function(locker){
-
 	if (!locker.get('cart')) {
 		locker.put('cart',[]);
 	}
-
 	return {
 		getCart:function(){
 			return locker.get('cart');
 		},
 		getTotal:function(){
-			return locker.get('total');
+			console.log("calling cart get total"); 
+			var cart = locker.get('cart');
+			if(!locker.get('total')){
+				locker.put('total');
+			}
+			var total = 0.0;
+			cart.forEach(function(cartItem){
+				total+= (cartItem.price*cartItem.quantity);
+			})
+			locker.put('total',total);
+			return total;
 		},
 		addToCart:function(listing){
-			locker.put('cart',function(current){
-				current.push(listing);
-				return current;
+			var cart = locker.get('cart');
+			var exists = false; 
+			cart.forEach(function(cartItem,index){
+				if(cartItem['_id'] === listing._id){
+					exists = true; 
+					cartItem.quantity += listing.quantity;
+				}
 			});
+			if(exists){
+				locker.put('cart',cart);
+			}
+			if(!exists){
+				locker.put('cart',function(current){
+					current.push(listing);
+					return current;
+				});
+			}
 		},
 		remove: function(id){
 			var cart = locker.get('cart');
