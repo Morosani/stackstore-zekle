@@ -1,10 +1,15 @@
 'use strict';
 
+var express = require('express');
 var stripe = require('stripe')('sk_test_qhzQZUmT0xx9LVwnCTpWidnc');
+
+var app = express();
+
+
 
 module.exports = function(app) {
 
-	var stripeToken = request.body.stripeToken;
+	var stripeToken = req.body.stripeToken;
 
 	var charge = stripe.charges.create({
 	  amount: 1000, // how to populate??
