@@ -54,18 +54,18 @@ router.get('/:orderId', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	console.log("hit order route"); 
+	
 	var total =0.0; 
 	req.body.listings.forEach(function(entry){
 		total+= (entry.price*entry.quantity);
 
 	});
+	
 	Order.create({status:'created',totalPrice:total,items:req.body.listings,shipping:req.body.ship}).then(function(createdOrder){
-		console.log("order created"); 
+		
 		var emailTemplate= fs.readFileSync(__dirname+'/email.html','utf8'); 
-		console.log("email template read"); 
-		var customizedTemplate = ejs.render(emailTemplate,{orderNumber:createdOrder._id,orderTotal:createdOrder.totalPrice}); 
-		console.log("Customized Email Template ========== \n ",customizedTemplate); 
+		var url = req.headers.origin+"/order/"+createdOrder._id;
+		var customizedTemplate = ejs.render(emailTemplate,{orderNumber:createdOrder._id,orderUrl:url,orderTotal:createdOrder.totalPrice}); 
 		sendEmail(createdOrder.shipping.name,createdOrder.shipping.email,'Zekle','dan@zekle.com','Order Confirmation',customizedTemplate);
 		res.send(createdOrder); 
 	},next)
