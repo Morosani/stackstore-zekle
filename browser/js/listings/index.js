@@ -22,12 +22,19 @@ app.controller('CreateListingCtrl', function($scope,Listings,Categories){
     Categories.getAll().then(function(results){
         $scope.categories = results;
     });
-    $scope.ListingForm
-    $scope.createListing= function(){
-        Listings.create($scope.ListingForm)
+    //$scope.ListingForm
+    $scope.createListing = function(){
+        Listings.createListing($scope.listingForm).then(function(response) {
+        console.log("listing creation response", response);
+            delete $scope.listingForm
+        })
     }
+
 })
 
-app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories){
+app.controller('DetailsListingCtrl', function($scope, $stateParams, Listings,Categories, AuthService){
     $scope.listing = Listings.listing;
+    $scope.isLoggedIn = AuthService.isAuthenticated();
 })
+
+
