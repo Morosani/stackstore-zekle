@@ -37,6 +37,16 @@ Listing.findOne({ _id: req.params.listingId }).populate('category customerReview
     res.send(listing);
   }).then(null, next);
 });
+
+router.post('/update', function(req, res, next){
+  console.log('updatethis',req.body);
+  Listing.findOneAndUpdate({_id: req.body._id}, req.body, function(err, listing){
+    if(err){
+      console.log('hit error')
+    }
+  });
+});
+
 router.get('/user/:id',function(req,res,next){
   console.log(req.params.id); 
   Listing.find({seller:req.params.id}).exec().then(function(foundListings){
@@ -44,6 +54,7 @@ router.get('/user/:id',function(req,res,next){
     res.send(foundListings); 
   });
 });
+
 router.post('/create', function(req, res, next) {
   console.log('hitting the create route');
   console.log(req.body);

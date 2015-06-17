@@ -65,8 +65,8 @@ app.controller('AdminListingsCtrl', function($scope, $state, Listings) {
 	$scope.editListing = function(id) {
 		console.log('hitting')
 		Listings.getOne(id).then(function(response){
-			$scope.editListingForm = response;
-			$state.go("adminEditListing")
+			//$scope.editListingForm = response;
+			$state.go("adminEditListing", response);
 		});
 	}
 });
@@ -82,5 +82,13 @@ app.controller('CreateCategoryCtrl', function($scope, Categories) {
 
 app.controller('AdminEditListingCtrl', function($scope, $state, Listings) {
 	$scope.editListingForm;
+	var editId = Listings.getEditListingID();
+	Listings.getOne(editId).then(function(response){
+		//$scope.editListingForm = response;
+		$scope.editListingForm = response;
+	});
 
-})
+	$scope.updateListing = function(){
+		Listings.updateListing($scope.editListingForm);
+	};
+});
