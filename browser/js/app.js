@@ -1,10 +1,5 @@
 'use strict';
-window.app = angular.module('FullstackGeneratedApp', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt','angular-locker', 'stripe.checkout', 'angular-stripe']);
-
-
-app.config(function (stripeProvider) {
-    stripeProvider.setPublishableKey('pk_test_EY6KtbX7HSipY3Bbtwk4f7gZ');
-});
+window.app = angular.module('FullstackGeneratedApp', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt','angular-locker', 'stripe.checkout']);
 
 app.config(function ($urlRouterProvider, $locationProvider,lockerProvider) {
     lockerProvider.defaults({
