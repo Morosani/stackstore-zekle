@@ -1,16 +1,18 @@
 $purple: rgb(48, 34, 74);
 $offwhite:darken(white,10%);
 navbar {
-
-  display: block;
-  background-color: black;
+    display: block;
+    position:fixed;
+    z-index:2;
+    width:100%;
+    height:60px;
+    background-color: black;
   // border-bottom: 4px solid darken($offwhite,20%);
-  search{
-    float:right;
-  }
+
   fullstack-logo {
     padding-top: 0px;
     margin-right: 20px;
+    margin-top:4px;
     width: 50px;
   }
 
@@ -19,6 +21,12 @@ navbar {
     font-size:1.1em;
     &:hover {
       
+    }
+  }
+  .login-button{
+    background-color:white;
+    &:hover{
+      background-color:$offwhite;
     }
   }
 
@@ -34,6 +42,9 @@ navbar {
       color: $teal;
       background: transparent;
     }
+  }
+  .search{
+    margin-top:2px; 
   }
 
   .login-button {

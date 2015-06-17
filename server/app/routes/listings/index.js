@@ -38,9 +38,27 @@ Listing.findOne({ _id: req.params.listingId }).populate('category customerReview
   }).then(null, next);
 });
 
+router.post('/update', function(req, res, next){
+  console.log('updatethis',req.body);
+  Listing.findOneAndUpdate({_id: req.body._id}, req.body, function(err, listing){
+    if(err){
+      console.log('hit error')
+    }
+  });
+});
+
+router.get('/user/:id',function(req,res,next){
+  console.log(req.params.id); 
+  Listing.find({seller:req.params.id}).exec().then(function(foundListings){
+    console.log(foundListings); 
+    res.send(foundListings); 
+  });
+});
+
 router.post('/create', function(req, res, next) {
   console.log('hitting the create route');
   console.log(req.body);
+  req.body['seller'] = req.session.passport.user;
   Listing.create(req.body).then(function(listing) {
     res.sendStatus(201);
   }).then(null, next);

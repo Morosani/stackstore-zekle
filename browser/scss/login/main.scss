@@ -1,4 +1,15 @@
-#login-form {
-  width: 60%;
-  margin: 0 auto;
+.loginContainer{
+	margin-top:3%;
+
+	
+	.oauthContainer{
+		margin-top:3%;
+		.googleButton{
+			line-height:20px;
+			#text{
+				float:right;
+				margin-top:6px;
+			}
+		}
+	}	
 }

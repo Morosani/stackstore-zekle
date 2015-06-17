@@ -22,7 +22,6 @@ app.config(function ($urlRouterProvider, $locationProvider,lockerProvider) {
 
 // This app.run is for controlling access to specific states.
 app.run(function ($rootScope, AuthService, $state) {
-
     // The given state requires an authenticated user.
     var destinationStateRequiresAuth = function (state) {
         return state.data && state.data.authenticate;
@@ -51,10 +50,14 @@ app.run(function ($rootScope, AuthService, $state) {
             // If a user is retrieved, then renavigate to the destination
             // (the second time, AuthService.isAuthenticated() will work)
             // otherwise, if no user is logged in, go to "login" state.
-            if (user) {
-                $state.go(toState.name, toParams);
-            } else {
+            if (toState.data.needsAdmin && user && user.admin) {
+                $state.go(toState.name, toParams)
+            } else if (toState.data.needsAdmin && user && !user.admin) {
+                $state.go('home');
+            } else if (!AuthService.isAuthenticated()) {
                 $state.go('login');
+            } else {
+                $state.go(toState.name, toParams)
             }
         });
 

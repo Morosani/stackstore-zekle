@@ -45,6 +45,7 @@ module.exports = function (app) {
     // We provide a simple GET /session in order to get session information directly.
     // This is used by the browser application (Angular) to determine if a user is
     // logged in already.
+
     app.get('/session', function (req, res) {
         if (req.user) {
             res.send({ user: _.omit(req.user.toJSON(), ['salt', 'password']) });
@@ -52,7 +53,13 @@ module.exports = function (app) {
             res.status(401).send('No authenticated user.');
         }
     });
-
+    app.get('/isAdmin', function(req, res) {
+        if (req.user.admin) {
+            res.send({ user: _.omit(req.user.toJSON(), ['salt', 'password']) });
+        } else {
+            res.status(401).send('Not admin.');
+        }
+    });
     // Simple /logout route.
     app.get('/logout', function (req, res) {
         req.logout();

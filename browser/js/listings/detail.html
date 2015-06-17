@@ -1,33 +1,36 @@
-<div id="product-details" class="col-md-12 listing product-details">
-  <div class="listing-header">
-    <h2 class="title">{{listing.title}} <small>{{listing.category[0].name}} | {{listing.quantity}} <span ng-show="available"> available</span></small></h2> <!-- only show if available is true -->
-    <button ng-click="addListingToCart(listing)" class="btn btn-primary addToCartButton"><i class="fa fa-cart-plus fa-2x"></i></button>
-  </div>
-  <div class="col-sm-3 pull-left">
-    <div class="thumbnail">
+<div class="row">
+  <div id="product-details" class="col-md-8 col-md-offset-2 listing product-details">
+    <div class="listing-header">
+      <h2 class="title">{{listing.title}} <small>{{listing.category[0].name}} | {{listing.quantity}} <span ng-show="available"> available</span></small></h2> <!-- only show if available is true -->
+      <button ng-click="addListingToCart(listing)" class="btn btn-primary addToCartButton"><i class="fa fa-cart-plus fa-2x"></i></button>
+    </div>
+    <div class="col-sm-3 pull-left">
+      <div class="thumbnail">
 
-      <img ng-src="{{listing.photoUrl}}" alt="">
-      <div class="caption">
-        <h3 class="price">{{listing.price|currency}}</h3>
+        <img ng-src="{{listing.photoUrl}}" alt="">
+        <div class="caption">
+          <h3 class="price">{{listing.price|currency}}</h3>
+        </div>
       </div>
     </div>
+    <p class="description">{{listing.description | limitTo:letterLimit }}</p>
   </div>
-  <p class="description">{{listing.description | limitTo:letterLimit }}</p>
 </div>
-<div ng-show="isLoggedIn"><a ui-sref="listingState.details.review">Leave a review</a></div>
-<div ui-view></div>
-<form action="/charge" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_EY6KtbX7HSipY3Bbtwk4f7gZ"
-    data-image="/img/documentation/checkout/marketplace.png"
-    data-name="Stripe.com"
-    data-description="2 widgets"
-    data-amount="2000">hello
-  </script>
-</form>
-<div class="col-md-12">
-  <div class="col-md-6" ng-repeat="review in listing.customerReviews" class="reviews"><blockquote>{{review.rating}} <span class="glyphicon glyphicon-star"></span><p>{{review.comment}}</p><footer>{{review.user.firstName}} {{review.user.lastName}}</footer></blockquote></div>
+<div class="row">
+  <div class="col-md-3 col-md-offset-2">
+    <div ng-show="isLoggedIn"><a ui-sref="listingState.details.review">Leave a review</a></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div ui-view></div>
+  </div>
+</div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<h4>Reviews: </h4>
+    <div class="col-md-6" ng-repeat="review in listing.customerReviews" class="reviews"><blockquote>{{review.rating}} <span class="glyphicon glyphicon-star"></span><p>{{review.comment}}</p><footer>{{review.user.firstName}} {{review.user.lastName}}</footer></blockquote></div>
+  </div>
 </div>
 
 

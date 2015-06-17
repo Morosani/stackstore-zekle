@@ -1,3 +1,4 @@
+<div class="reviewForm">
 <form id="create-review-form" name="reviewForm" ng-submit="reviewForm.$valid && createReview()">
     <alert type="danger" ng-show="error">
         {{ error }}
@@ -7,10 +8,10 @@
         <span>How many stars would you give this item? </span><rating max="5" ng-model="reviewForm.rating"></rating>
         <textarea id="review-comment" rows="10" cols="50" ng-model="reviewForm.comment" novalidate class="form-control" placeholder="What would you like to say about this item?"></textarea>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
 
 </form>
-
+</div>
 <!-- {{ reviewForm | json }}
 <pre>
 
