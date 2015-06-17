@@ -1,12 +1,13 @@
 $offwhite:#f0f0f0;
 #listingsWrapper{
-	// display: flex;
-	// flex-direction: column;
-	// flex-wrap: wrap;
-	// height: 100vw;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 100vw;
 }
 
 .listing{
+	margin-bottom:20px; 
 	padding-bottom:5%;
 	background-color:$offwhite;
 	border-radius:10px;
@@ -46,7 +47,13 @@ $offwhite:#f0f0f0;
 	h3 {
 		text-align: center;
 	}
+	p{
+		font-size:1.3em;
+	}
 }
 #review-comment {
 	width: 500px;
+}
+.reviewForm{
+	margin-bottom:2%;
 }
