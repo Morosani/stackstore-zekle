@@ -16,7 +16,7 @@ app.config(function($stateProvider){
 	})
 })
 
-app.controller('CheckoutCtrl',function($scope,$state,Cart,Checkout,stripe){
+app.controller('CheckoutCtrl',function($scope,$state,Cart,Checkout){
 	$scope.cartItems = Cart.getCart();
 	$scope.states= Checkout.getStates();
 	$scope.total = Cart.getTotal();
@@ -27,6 +27,7 @@ app.controller('CheckoutCtrl',function($scope,$state,Cart,Checkout,stripe){
 			$state.go('confirmation');
 		});
 	}
+
 
 	// $scope.charge = function () {
  //    // console.log('hello? is stripe a thing?', stripe);
@@ -46,7 +47,7 @@ app.controller('ConfirmationCtrl',function($scope,Checkout){
 	$scope.order = Checkout.getOrder();
 });
 
-app.controller('PaymentController', function ($scope, $state, Checkout, $http, stripe) {
+app.controller('PaymentController', function ($scope, $state, Checkout, $http) {
 
     this.doCheckout = function(token) {
             alert("Got Stripe token: " + token.id);
