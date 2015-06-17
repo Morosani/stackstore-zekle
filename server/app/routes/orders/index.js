@@ -7,7 +7,7 @@ var fs = require('fs');
 var mandrill = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill('BCRvi3cKhPXJKPXcLHOYHQ');
 var ejs = require('ejs'); 
-var order = mongoose.model('Order');
+var Order = mongoose.model('Order');
 
 function sendEmail(to_name, to_email, from_name, from_email, subject, message_html){
 	console.log("called sendEmail"); 
@@ -42,30 +42,30 @@ function sendEmail(to_name, to_email, from_name, from_email, subject, message_ht
     });
 }
 router.get('/', function(req, res, next) {
-	order.find({}).exec().then(function(orders) {
+	Order.find({}).exec().then(function(orders) {
 		res.send(orders);
 	}).then(null, next);
 });
 
 router.get('/:orderId', function(req, res, next) {
-	order.find({ id: req.params.orderId}).exec().then(function(order) {
-		res.send(order);
+	Order.findOne({_id: req.params.orderId}).exec().then(function(foundOrder) {
+		res.send(foundOrder);
 	}).then(null, next);
 });
 
 router.post('/', function(req, res, next) {
-	console.log("hit order route"); 
+	
 	var total =0.0; 
 	req.body.listings.forEach(function(entry){
 		total+= (entry.price*entry.quantity);
 
 	});
-	order.create({status:'created',totalPrice:total,items:req.body.listings,shipping:req.body.ship}).then(function(createdOrder){
-		console.log("order created"); 
+	
+	Order.create({status:'created',totalPrice:total,items:req.body.listings,shipping:req.body.ship}).then(function(createdOrder){
+		
 		var emailTemplate= fs.readFileSync(__dirname+'/email.html','utf8'); 
-		console.log("email template read"); 
-		var customizedTemplate = ejs.render(emailTemplate,{orderNumber:createdOrder._id,orderTotal:createdOrder.totalPrice}); 
-		console.log("Customized Email Template ========== \n ",customizedTemplate); 
+		var url = req.headers.origin+"/order/"+createdOrder._id;
+		var customizedTemplate = ejs.render(emailTemplate,{orderNumber:createdOrder._id,orderUrl:url,orderTotal:createdOrder.totalPrice}); 
 		sendEmail(createdOrder.shipping.name,createdOrder.shipping.email,'Zekle','dan@zekle.com','Order Confirmation',customizedTemplate);
 		res.send(createdOrder); 
 	},next)

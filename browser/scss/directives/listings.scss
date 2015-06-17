@@ -19,14 +19,24 @@ $offwhite:#f0f0f0;
 
 	}
 	input{
-		width:15%; 
+		width:15%;
 	}
 	.addToCartButton{
 		padding-top:1px;
-		padding-bottom:1px; 
+		padding-bottom:1px;
 	}
-	
-
+	.checkMark{
+		color:$completed;
+		float:right;
+	}
+}
+.listing-header {
+	h2 {
+		display: inline-block;
+	}
+	button {
+		margin-bottom: 11px;
+	}
 }
 .product-details {
 	img {

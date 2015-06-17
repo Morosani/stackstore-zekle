@@ -1,5 +1,8 @@
 <div id="product-details" class="col-md-12 listing product-details">
-  <h2 class="title">{{listing.title}}</h2>
+  <div class="listing-header">
+    <h2 class="title">{{listing.title}} <small>{{listing.category[0].name}} | {{listing.quantity}} <span ng-show="available"> available</span></small></h2> <!-- only show if available is true -->
+    <button ng-click="addListingToCart(listing)" class="btn btn-primary addToCartButton"><i class="fa fa-cart-plus fa-2x"></i></button>
+  </div>
   <div class="col-sm-3 pull-left">
     <div class="thumbnail">
 
@@ -10,8 +13,12 @@
     </div>
   </div>
   <p class="description">{{listing.description | limitTo:letterLimit }}</p>
-  <p ng-repeat="review in listing.customerReviews" class="reviews">{{review.user.firstName}} {{review.user.lastName}} {{review.comment}} {{review.rating}}</p>
 </div>
 <div ng-show="isLoggedIn"><a ui-sref="listingState.details.review">Leave a review</a></div>
 <div ui-view></div>
+<div class="col-md-12">
+  <div class="col-md-6" ng-repeat="review in listing.customerReviews" class="reviews"><blockquote>{{review.rating}} <span class="glyphicon glyphicon-star"></span><p>{{review.comment}}</p><footer>{{review.user.firstName}} {{review.user.lastName}}</footer></blockquote></div>
+</div>
+
+
 <!-- could use a nested view to show review form or a new state -->

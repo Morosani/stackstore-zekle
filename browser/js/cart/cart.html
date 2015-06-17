@@ -8,18 +8,25 @@
 <p><i ui-sref="home" class="fa fa-home fa-3x"></i></p>
 </div>
 <!-- {{cartItems}} -->
-<div ng-repeat="item in cartItems" class="row cartItem">
+<div ng-repeat="item in cartItems" class="row cartItem" ng-controller="CartItemCtrl">
 	<div class="col-md-2 imgContainer">
 		<img ng-src="{{item.photoUrl}}" alt="">
 	</div>
 	<div class="col-md-2"><h2>{{item.title}}</h2></div>
 	<!-- <div class="col-md-3"><p>{{item.description}}</p></div> -->
-	
-	<div class="col-md-1"><p><b>Price:  </b>{{item.price|currency}}</p></div>
 	<div class="col-md-2"><button class="btn btn-info">Contact Seller</button></div>
-	<div class="col-md-1"><input type="number" ng-model="item.quantity"></div>
-	<div ng-click="update(item._id,item.quantity)" class="col-md-1"><i class="fa fa-refresh fa-2x"></i></div>
+	<div class="col-md-1"><label for="">Price</label><p>{{item.price|currency}}</p></div>
+	<div class="col-md-1"><label for="">Qty:</label><input type="number" ng-model="item.quantity"></div>
+	<div ng-click="update(item._id,item.quantity,$index); showSpin()" class="col-md-1"><i class="fa fa-refresh fa-2x"></i></div>
+	<!-- {{item.updating}} -->
 	<div ng-click = "removeItem(item._id)"class="col-md-1"><i class="fa fa-trash-o fa-2x" ></i></div>
+</div>
+<div class="row">
+	
+	<div class="col-md-2 col-md-offset-9">
+	<hr>
+		<h4 class="text-right">Total: {{total|currency}}</h4>
+	</div>
 </div>
 <div ng-if="cartItems.length>0" class="row text-center checkout">
 	<div class="col-md-2 col-md-offset-10">

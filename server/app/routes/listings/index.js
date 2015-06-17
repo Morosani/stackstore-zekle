@@ -28,7 +28,12 @@ router.delete('/:listingId', function(req, res, next) {
 });
 
 router.get('/:listingId', function(req, res, next) {
-  Listing.findOne({ _id: req.params.listingId }).populate('customerReviews').deepPopulate('customerReviews.user').exec().then(function(listing) {
+  // Listing.findOne({ _id: req.params.listingId }).populate('category customerReviews').deepPopulate('customerReviews.user').exec().then(function(listing) {
+  //   console.log('this is my listing from single listing route: ', listing)
+  //   res.send(listing);
+  // }).then(null, next);
+Listing.findOne({ _id: req.params.listingId }).populate('category customerReviews').deepPopulate('customerReviews.user').exec().then(function(listing) {
+    console.log('this is my listing from single listing route: ', listing)
     res.send(listing);
   }).then(null, next);
 });
