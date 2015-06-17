@@ -18,6 +18,9 @@ $completed:#00FF99;
 body{
 	font-family: 'Muli', sans-serif;
 }
+.contentArea{
+	padding-top:70px; 
+}
 
 @import 'directives/main';
 @import 'home/main';
@@ -26,3 +29,4 @@ body{
 @import 'login/main';
 @import 'cart/main';
 @import 'checkout/main';
+@import 'account/main';
