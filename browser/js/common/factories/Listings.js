@@ -32,7 +32,13 @@ app.factory('Listings',function($http,AuthService){
 				});
 			});
 
-		}
+		},
+
+		deleteListing:function(id){
+			return $http.delete('/api/listings/' + id).then(function(response){
+				console.log('listing deleted')
+			})
+		},
 	}
 })
 

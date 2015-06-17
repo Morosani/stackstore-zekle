@@ -1,0 +1,17 @@
+<div id="listingsWrapper" class="col-md-12">
+    <div ng-repeat="listing in listings" class="col-lg-3 col-md-3 col-sm-4 listingContainer">
+        <div class="col-md-12 listing">
+            <h2 class="title">{{listing.title}}</h2>
+            <img class="img" src="{{listing.photoUrl}}" alt="No image">
+            <p class="description">{{listing.description | limitTo:letterLimit }}</p>
+            <h3 class="price">{{listing.price|currency}}</h3>
+            <div class="bottomAlign">
+                <!--<button ui-sref="listingState.details({id:'{{listing._id}}'})" class="btn btn-primary">Product Details</button>
+                <!--<input type="number" ng-init="listing.quantity=1" ng-model = "listing.quantity">-->
+                <h5 class="listing.quantity">Quantity:{{listing.quantity}}</h5>
+                <button ng-click="editListing(listing._id)" class="glyphicon glyphicon-edit"></button>
+                <button ng-click="deleteListing(listing._id)" class="glyphicon glyphicon-remove-circle"></button>
+            </div>
+        </div>
+    </div>
+</div>

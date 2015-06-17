@@ -1,0 +1,39 @@
+<form name="editForm" ng-class="form-group" ng-submit="editForm.$valid && updateListing()" novalidate>
+
+    <div class="form-group" ng-class="{ 'has-error' : editForm.title.$invalid && editForm.$submitted }">
+        <label>Title</label>
+        <input type="text" ng-model="editListingForm.title" name="title" class="form-control" value="{{editListingForm.title}}" required>
+        <p ng-show="editForm.title.$invalid && editForm.$submitted" class="help-block">listing title is required.</p>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : editForm.category.$invalid && editForm.$submitted }">
+        <label>Category</label>
+        <select ng-model="editListingForm.category">
+            <option ng-repeat="category in categories" name="category" value="{{editListingForm.category}}">{{category.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <input type="file">
+        </label>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : editForm.description.$invalid && editForm.$submitted }">
+        <label>Description</label>
+        <input type="text" ng-model="editListingForm.description" name="description" value="{{editListingForm.description}}" class="form-control"  required>
+        <p ng-show="editForm.description.$invalid && editForm.$submitted" class="help-block">description is required.</p>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : editForm.price.$invalid && editForm.$submitted }">
+        <label>Price</label>
+        <input type="number" ng-model="editListingForm.price" value="{{editListingForm.price}}" name="price" class="form-control" id="price" required>
+        <p ng-show="editForm.price.$invalid && editForm.$submitted" class="help-block">listing price is required.</p>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : editForm.quantity.$invalid && editForm.$submitted }">
+        <label>Quantity</label>
+        <input ng-model="editListingForm.quantity" type="number" value="{{editListingForm.category}}" class="form-control" id="quantity" required>
+        <p ng-show="editForm.quantity.$invalid && editForm.$submitted" class="help-block">quantity is required.</p>
+    </div>
+    <input value="Update Listing" type="submit" class="btn btn-default">
+</form>
