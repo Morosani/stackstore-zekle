@@ -13,11 +13,14 @@ app.controller('SearchCtrl',function($scope,$rootScope, $state, Categories,Searc
 		$scope.categories= data;
 	})
 	$scope.search;
+	$scope.goHome=function(){
+		$state.go('home'); 
+	}
 	$scope.fireSearch = function(){
+		console.log("search fired"); 
 		Search.submitSearch($scope.search.category,$scope.search.input).then(function (results){
 			SearchResults.setResults(results);
 			delete $scope.search;
-			
 		});
 	};
 });

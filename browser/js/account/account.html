@@ -3,38 +3,40 @@
 		<div class="col-md-10 col-md-offset-1">
 			<h1>Account Summary</h1>
 
-			<h3>Current Shopping Cart:</h3>
+			<h3 ng-click="showCart = !showCart">Current Shopping Cart: <i class="fa fa-caret-down" ng-show="showCart"></i><i class="fa fa-caret-up" ng-show="!showCart"></i></h3>
 
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<h1 class="text-center"><i class="fa fa-shopping-cart fa-2x"></i></h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div ng-if="cartItems.length==0" class="text-center">
-				<h3 >Your cart is currently empty.</h3>
-				<p><i ui-sref="home" class="fa fa-home fa-3x"></i></p>
+	<div collapse="showCart" class="shoppingCart">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1 class="text-center"><i class="fa fa-shopping-cart fa-2x"></i></h1>
 			</div>
-			<!-- {{cartItems}} -->
-			<div ng-repeat="item in cartItems" class="row cartItem">
-				<div class="col-md-2 imgContainer">
-					<img ng-src="{{item.photoUrl}}" alt="">
+		</div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div ng-if="cartItems.length==0" class="text-center">
+					<h3 >Your cart is currently empty.</h3>
+					<p><i ui-sref="home" class="fa fa-home fa-3x"></i></p>
 				</div>
-				<div class="col-md-2"><h2>{{item.title}}</h2></div>
-				<!-- <div class="col-md-3"><p>{{item.description}}</p></div> -->
+				<!-- {{cartItems}} -->
+				<div ng-repeat="item in cartItems" class="row cartItem">
+					<div class="col-md-2 imgContainer">
+						<img ng-src="{{item.photoUrl}}" alt="">
+					</div>
+					<div class="col-md-2"><h2>{{item.title}}</h2></div>
+					<!-- <div class="col-md-3"><p>{{item.description}}</p></div> -->
 
-				<div class="col-md-1"><p><b>Price:  </b>{{item.price|currency}}</p></div>
-				<div class="col-md-2"><button class="btn btn-info">Contact Seller</button></div>
-				<div class="col-md-1"><input type="number" ng-model="item.quantity"></div>
-				<div ng-click="update(item._id,item.quantity)" class="col-md-1"><i class="fa fa-refresh fa-2x"></i></div>
-				<div ng-click = "removeItem(item._id)"class="col-md-1"><i class="fa fa-trash-o fa-2x" ></i></div>
-			</div>
-			<div ng-if="cartItems.length>0" class="row text-center checkout">
-				<div class="col-md-2 col-md-offset-10">
-					<button ui-sref="checkout" class='btn btn-primary'>Proceed to Checkout</button>
+					<div class="col-md-1"><p><b>Price:  </b>{{item.price|currency}}</p></div>
+					<div class="col-md-2"><button class="btn btn-info">Contact Seller</button></div>
+					<div class="col-md-1"><input type="number" ng-model="item.quantity"></div>
+					<div ng-click="update(item._id,item.quantity)" class="col-md-1"><i class="fa fa-refresh fa-2x"></i></div>
+					<div ng-click = "removeItem(item._id)"class="col-md-1"><i class="fa fa-trash-o fa-2x" ></i></div>
+				</div>
+				<div ng-if="cartItems.length>0" class="row text-center checkout">
+					<div class="col-md-2 col-md-offset-10">
+						<button ui-sref="checkout" class='btn btn-primary'>Proceed to Checkout</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -51,7 +53,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<h2 ng-click="showSeller = !showSeller">Seller Dashboard <i class="fa fa-caret-down" ng-show="!showSeller"></i><i class="fa fa-caret-up" ng-show="showSeller"></i></h2>
+			<h3 ng-click="showSeller = !showSeller">Seller Dashboard <i class="fa fa-caret-up" ng-show="!showSeller"></i><i class="fa fa-caret-down" ng-show="showSeller"></i></h3>
 		</div>
 
 		<div collapse="showSeller" class="sellerDashboard col-md-10 col-md-offset-1">
@@ -61,17 +63,17 @@
 					<hr>
 				</div>
 				<div class="row">
-				<div ng-repeat = "listing in sellerListings" class="col-md-4">
-					<h4><b>Title: </b>{{listing.title}}</h4>
-					<hr>
-					<img ng-show="listing.photoUrl" ng-src="listing.photoUrl" alt="">
-					<hr ng-show="listing.photoUrl">
-					<p><b>Description: </b>{{listing.description}}</p>
-					<hr>
-					<p><b>Price: </b>{{listing.price}}</p>
-					<hr>
-					<p><b>Quantity: </b>{{listing.quantity}}</p>
-				</div>
+					<div ng-repeat = "listing in sellerListings" class="col-md-4">
+						<h4><b>Title: </b>{{listing.title}}</h4>
+						<hr>
+						<img ng-show="listing.photoUrl" ng-src="listing.photoUrl" alt="">
+						<hr ng-show="listing.photoUrl">
+						<p><b>Description: </b>{{listing.description}}</p>
+						<hr>
+						<p><b>Price: </b>{{listing.price}}</p>
+						<hr>
+						<p><b>Quantity: </b>{{listing.quantity}}</p>
+					</div>
 				</div>
 				<div class="row">
 					<div class="customerOrders">

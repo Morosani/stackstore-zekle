@@ -14,6 +14,7 @@ app.controller('AccountCtrl',  function($scope,Cart,Orders,Listings){
 		$scope.previousOrders = foundOrders; 
 	});
 	$scope.showSeller = false;
+	$scope.showCart = true; 
 	Listings.getBySeller().then(function(foundListings){
 		$scope.sellerListings = foundListings; 
 	})
