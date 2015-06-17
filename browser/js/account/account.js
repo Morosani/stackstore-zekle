@@ -8,6 +8,13 @@ app.config(function($stateProvider){
 
 // wire up order history
 
-app.controller('AccountCtrl',  function($scope,Account){
-	$scope.accountItems = Account.getAccount();
+app.controller('AccountCtrl',  function($scope,Cart,Orders,Listings){
+	$scope.cartItems = Cart.getCart();
+	Orders.getOrderByUser().then(function(foundOrders){
+		$scope.previousOrders = foundOrders; 
+	});
+	$scope.showSeller = false;
+	Listings.getBySeller().then(function(foundListings){
+		$scope.sellerListings = foundListings; 
+	})
 });

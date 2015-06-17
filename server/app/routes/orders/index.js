@@ -52,7 +52,20 @@ router.get('/:orderId', function(req, res, next) {
 		res.send(foundOrder);
 	}).then(null, next);
 });
-
+router.get('/user/:id',function(req,res,next){
+	console.log(req.params.id); 
+	Order.find({user:req.params.id}).exec().then(function(foundOrders){
+		console.log(foundOrders); 
+		res.send(foundOrders); 
+	});
+});
+router.get('/seller/:id',function(req,res,next){
+	console.log(req.params.id); 
+	Order.find({seller:req.params.id}).exec().then(function(foundOrders){
+		console.log(foundOrders); 
+		res.send(foundOrders); 
+	});
+});
 router.post('/', function(req, res, next) {
 	
 	var total =0.0; 
@@ -60,8 +73,7 @@ router.post('/', function(req, res, next) {
 		total+= (entry.price*entry.quantity);
 
 	});
-	
-	Order.create({status:'created',totalPrice:total,items:req.body.listings,shipping:req.body.ship}).then(function(createdOrder){
+	Order.create({user:req.session.passport.user, status:'created',totalPrice:total,items:req.body.listings,shipping:req.body.ship}).then(function(createdOrder){
 		
 		var emailTemplate= fs.readFileSync(__dirname+'/email.html','utf8'); 
 		var url = req.headers.origin+"/order/"+createdOrder._id;

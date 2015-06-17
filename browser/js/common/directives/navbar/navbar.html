@@ -3,15 +3,17 @@
         <div class="navbar-header">
             <fullstack-logo></fullstack-logo>
         </div>
-        
         <ul class="nav navbar-nav">
             <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
                 <a ui-sref-active="active" ui-sref="{{ item.state }}"><i class="{{ item.label }}"></i></a>
             </li>
         </ul>
-        <search></search>
+        <div class="search col-md-4 col-md-offset-1">
+            <search></search>
+        </div>
+        
         <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
-        <div ng-show="user" class="welcome">
+        <div ng-show="user" class="welcome col-sm-3">
             <span>Welcome, {{ user.email }}!</span>
             <a ng-click="logout()">Logout</a>
         </div>

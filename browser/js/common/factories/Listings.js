@@ -1,4 +1,4 @@
-app.factory('Listings',function($http){
+app.factory('Listings',function($http,AuthService){
 	return {
 		getAll:function(){
 			return $http.get('/api/listings').then(function(response){
@@ -24,6 +24,14 @@ app.factory('Listings',function($http){
 		},
 		getObjectId:function(listing){
 			return listing._id;
+		},
+		getBySeller:function(){
+			return AuthService.getLoggedInUser().then(function(user){
+				 return $http.get('/api/listings/user/'+user._id).then(function(response){
+					return response.data; 
+				});
+			});
+
 		}
 	}
 })
