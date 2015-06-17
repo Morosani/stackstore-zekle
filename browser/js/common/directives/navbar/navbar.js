@@ -11,7 +11,7 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
                 { label: 'fa fa-user fa-2x', state: 'account', auth:true},
                 { label: 'fa fa-shopping-cart fa-2x', state: 'cart'},
                 { label: 'fa fa-plus fa-2x', state: 'listingState.create',auth:true},
-                { label: 'fa fa-lock fa-2x', state: 'admin', auth: true }
+                { label: 'fa fa-lock fa-2x', state: 'adminCategories', auth: true }
             ];
 
             scope.user = null;
