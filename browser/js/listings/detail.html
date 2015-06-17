@@ -16,6 +16,16 @@
 </div>
 <div ng-show="isLoggedIn"><a ui-sref="listingState.details.review">Leave a review</a></div>
 <div ui-view></div>
+<form action="/charge" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_EY6KtbX7HSipY3Bbtwk4f7gZ"
+    data-image="/img/documentation/checkout/marketplace.png"
+    data-name="Stripe.com"
+    data-description="2 widgets"
+    data-amount="2000">hello
+  </script>
+</form>
 <div class="col-md-12">
   <div class="col-md-6" ng-repeat="review in listing.customerReviews" class="reviews"><blockquote>{{review.rating}} <span class="glyphicon glyphicon-star"></span><p>{{review.comment}}</p><footer>{{review.user.firstName}} {{review.user.lastName}}</footer></blockquote></div>
 </div>
