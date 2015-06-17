@@ -1,5 +1,10 @@
 'use strict';
-window.app = angular.module('FullstackGeneratedApp', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt','angular-locker']);
+window.app = angular.module('FullstackGeneratedApp', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt','angular-locker', 'stripe.checkout', 'angular-stripe']);
+
+
+app.config(function (stripeProvider) {
+    stripeProvider.setPublishableKey('pk_test_EY6KtbX7HSipY3Bbtwk4f7gZ');
+});
 
 app.config(function ($urlRouterProvider, $locationProvider,lockerProvider) {
     lockerProvider.defaults({
@@ -13,6 +18,7 @@ app.config(function ($urlRouterProvider, $locationProvider,lockerProvider) {
     //     namespace:'ZekleStore'
     // })
 });
+
 
 // This app.run is for controlling access to specific states.
 app.run(function ($rootScope, AuthService, $state) {

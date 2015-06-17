@@ -10,6 +10,7 @@ router.use('/orders', require('./orders'));
 router.use('/search', require('./search'));
 router.use('/categories', require('./categories'));
 router.use('/register', require('./register'));
+router.use('/payments', require('./payments'));
 //router.use('/stripe', require('../../configure/authentication/stripe-charge.js'));
 
 

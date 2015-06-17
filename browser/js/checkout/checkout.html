@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-2"><h2>{{item.title}}</h2></div>
     <!-- <div class="col-md-3"><p>{{item.description}}</p></div> -->
-    
+
     <div class="col-md-1"><p><b>Price:  </b>{{item.price|currency}}</p></div>
     <div class="col-md-1"><p><b>Qty: </b>{{item.quantity}}</p></div>
     <div class="col-md-2">
@@ -78,13 +78,17 @@
 </div>
 {{orderForm|json}}
 <div class="row billing">
-    <div class="col-md-8 col-md-offset-2 billingWrapper">
+    <div class="col-md-8 col-md-offset-2 billingWrapper text-center">
         <h3 class="text-center">Billing info</h3>
-        <h4 class="text-center"><i class="fa fa-money fa-3x"></i></h4> 
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-2 col-md-offset-5 text-center">
-        <button ng-click="storeCart()" class="btn btn-success">Submit Order</button>
+        <h4 class="text-center"><i class="fa fa-money fa-3x"></i></h4>
+
+          <button ng-click="storeCart()" class="btn btn-success" stripe-checkout="PaymentController.doCheckout"
+          data-key="pk_test_EY6KtbX7HSipY3Bbtwk4f7gZ"
+          data-name="Checkout with Stripe"
+          data-description=""
+          data-amount="{{total*100}}">
+          Checkout with Stripe
+        </button>
+
     </div>
 </div>
