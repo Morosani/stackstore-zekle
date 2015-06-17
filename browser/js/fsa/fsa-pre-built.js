@@ -56,6 +56,16 @@
             return !!Session.user;
         };
 
+        //this.isAdmin = function() {
+        //   // console.log("sessionUser", Session.user.admin);
+        //   // console.log('sessionsdfsdf', Session);
+        //   // return Session;
+        //    return $http.get('/isAdmin').then(function (cb) {
+        //        return cb;
+        //    })
+        //
+        //}
+
         this.getLoggedInUser = function () {
 
             // If an authenticated session exists, we
