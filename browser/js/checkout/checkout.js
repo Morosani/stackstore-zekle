@@ -46,7 +46,7 @@ app.controller('ConfirmationCtrl',function($scope,Checkout){
 	$scope.order = Checkout.getOrder();
 });
 
-app.controller('PaymentController', function ($scope, $state, Checkout $http, stripe) {
+app.controller('PaymentController', function ($scope, $state, Checkout, $http, stripe) {
 
     this.doCheckout = function(token) {
             alert("Got Stripe token: " + token.id);
@@ -54,10 +54,10 @@ app.controller('PaymentController', function ($scope, $state, Checkout $http, st
 
     };
     $scope.charge = function() {
-      console.log('$http???????', $http);
+      // console.log('$http???????', $http);
       return $http.post('/api/payments', {water: 'bottle'})
     }
-    console.log('hello, this is stripe ', stripe);
+    // console.log('hello, this is stripe ', stripe);
   // $scope.charge = function () {
   //   return stripe.card.createToken('4242424242424242')
   //     .then(function (token) {
